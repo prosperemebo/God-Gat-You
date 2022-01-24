@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GGY DASHBOARD</title>
+  </head>
+  <body>
+    <div class="gallery-upload">
+      <br />
+      <br />
+      <fieldset>
+        <legend>Upload To Gallery</legend>
+        <form
+          action="/api/v1/gallery/upload.php"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <input
+            required
+            type="text"
+            name="gall-filename"
+            placeholder="Title"
+          />
+          <br />
+          <br />
+          <input required type="text" name="gall-alt" placeholder="Alt Name" />
+          <br />
+          <br />
+          <input
+            required
+            type="text"
+            name="gall-body"
+            placeholder="body"
+            maxlength="430"
+          />
+          <br />
+          <br />
+          <label for="gall-img">Image</label>
+          <input required type="file" id="gall-img" name="gall-file" />
+          <br />
+          <br />
+          <button type="submit" name="gall-submit">Upload</button>
+        </form>
+      </fieldset>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <textarea></textarea>
+    <br />
+    <br />
+    <br />
+    <div class="wallpaper-upload">
+      <fieldset>
+        <legend>Upload To Wallpaper</legend>
+        <form
+          action="/api/v1/wallpaper/upload.php"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <input
+            required
+            type="text"
+            name="wall-name"
+            placeholder="Wallpaper Name"
+          />
+          <input
+            required
+            type="text"
+            name="wall-alt"
+            placeholder="Wallpaper Alt Name"
+          />
+          <br />
+          <br />
+          <label for="thumb">Thumbnail</label>
+          <input required type="file" id="thumb" name="wall-thumbfile" />
+          <br />
+          <br />
+          <label for="desk">Desktop</label>
+          <input required type="file" id="desk" name="wall-deskfile" />
+          <br />
+          <br />
+          <label for="tab">Tablet</label>
+          <input required type="file" id="tab" name="wall-tabfile" />
+          <br />
+          <br />
+          <label for="mob">Mobile</label>
+          <input required type="file" id="mob" name="wall-mobfile" />
+          <br />
+          <br />
+          <textarea
+            required
+            type="text"
+            name="download-appreciation"
+            placeholder="Download Appreciation"
+          ></textarea>
+          <br />
+          <br />
+          <button type="submit" name="wall-submit">UPLOAD</button>
+        </form>
+      </fieldset>
+    </div>
+    <br />
+    <br />
+    <br />
+    <fieldset>
+      <legend>Upload To Blog</legend>
+      <form
+        action="/api/v1/post/upload.php"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <input required type="text" name="postTitle" placeholder="Post Title" />
+        <br />
+        <br />
+        <input required type="text" name="altPostName" placeholder="Alt Name" />
+        <br />
+        <br />
+        <input
+          required
+          type="text"
+          name="postSearchKeys"
+          placeholder="Search Keys"
+        />
+        <br />
+        <br />
+        <input required type="file" name="imgPost" />
+        <br />
+        <br />
+        <input
+          required
+          type="text"
+          name="postDesc"
+          placeholder="Post Description"
+        />
+        <br />
+        <br />
+        <button type="submit" name="postSubmit">Upload</button>
+      </form>
+    </fieldset>
+    <br />
+    <br />
+    <br />
+    <fieldset>
+      <legend>Create Category</legend>
+      <form action="/api/v1/category/upload-category.php" method="POST">
+        <input
+          required
+          type="text"
+          name="categoryName"
+          placeholder="Category Name"
+        />
+        <br />
+        <br />
+        <button type="submit" name="createCategory">Create</button>
+      </form>
+    </fieldset>
+
+    <br />
+    <br />
+    <br />
+    <fieldset>
+      <legend>Upload To Products</legend>
+      <form
+        action="/api/v1/products/upload-product.php"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <input required type="file" name="productImg" />
+        <br />
+        <br />
+        <input
+          required
+          type="number"
+          name="price"
+          placeholder="Product Price"
+        />
+        <br />
+        <br />
+        <input
+          required
+          type="text"
+          name="productDesc"
+          placeholder="Product Description"
+        />
+        <br />
+        <br />
+        <select
+          id="categories"
+          required
+          type="text"
+          name="productCategory"
+          placeholder="Product Category"
+        >
+          <option value="">Empty</option>
+        </select>
+        <br />
+        <br />
+        <input
+          required
+          type="text"
+          name="altName"
+          placeholder="Product Alt Name"
+        />
+        <br />
+        <br />
+        <button type="submit" name="submitProduct">Upload</button>
+      </form>
+    </fieldset>
+    <br />
+    <br />
+    <br />
+    <fieldset>
+      <legend>SEND NOTIFICATION HAVING MODIFIED THE FILE</legend>
+      <form>
+        <input
+          id="title"
+          type="text"
+          required
+          placeholder="notification title"
+        />
+        <input id="body" type="text" required placeholder="notification body" />
+        <input id="url" type="text" required placeholder="notification url" />
+        <input id="act_btn" type="text" required placeholder="action button" />
+        <button id="send">SEND</button>
+        <p class="message"></p>
+        <p class="response"></p>
+      </form>
+    </fieldset>
+    <br />
+    <br />
+    <br />
+    <script>
+      document.querySelector("#send").addEventListener("click", function (e) {
+        var title = document.querySelector("#title").value;
+        var body = document.querySelector("#body").value;
+        var url = document.querySelector("#url").value;
+        var act_btn = document.querySelector("#act_btn").value;
+
+        fetch("https://www.godgatyou.com/send.php", {
+          method: POST,
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            title: title,
+            body: body,
+            url: url,
+            act_btn: act_btn,
+          }),
+        })
+          .then(function (res) {
+            document.querySelector(".message").textContent =
+              "You Have Successfully sent your push notification!";
+            return res;
+          })
+          .then(function (response) {
+            document.querySelector(".response").textContent = response;
+          });
+      });
+
+      fetch("/api/v1/category/read-category.php")
+        .then(function (res) {
+          return res.json();
+        })
+        .then(function (data) {
+          var categories = data.data;
+
+          for (let i = 0; i < categories.length; i++) {
+            var e = categories[i];
+            var markup = `
+              <option value = "${e.id}">${e.name}</option>
+            `;
+
+            document
+              .querySelector("#categories")
+              .insertAdjacentHTML("beforeend", markup);
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+{
+  "name": "GOD GAT YOU",
+  "short_name": "God Gat You",
+  "icons": [
+    {
+      "src": "/assets/images/icons/app-icon-48x48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/assets/images/icons/app-icon-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/assets/images/icons/app-icon-144x144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "/assets/images/icons/app-icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/images/icons/app-icon-256x256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/assets/images/icons/app-icon-384x384.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "/assets/images/icons/app-icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name":"Wallpapers",
+      "short_name": "Wallpapers",
+      "description": "Download God Gat You wallpapers",
+      "url": "/wallpaper/"
+    },
+    {
+      "name":"Blog",
+      "short_name": "Blog",
+      "description": "Check out God Gat You new posts",
+      "url": "/blog/"
+    }
+  ],
+  "start_url": "/",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "description": "God Gat You web app",
+  "dir": "ltr",
+  "lang": "en-US",
+  "gcm_sender_id": "1004052559188"
+}

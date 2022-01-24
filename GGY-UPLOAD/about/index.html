@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>God Gat You || About</title>
+    <link
+      rel="shortcut icon"
+      href="/assets/Logo/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/aos.css" />
+    <link rel="stylesheet" href="/css/css/all.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="God Gat You" />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-57x57.png"
+      sizes="57x57"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-60x60.png"
+      sizes="60x60"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-72x72.png"
+      sizes="72x72"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-76x76.png"
+      sizes="76x76"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-114x114.png"
+      sizes="114x114"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-120x120.png"
+      sizes="120x120"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-144x144.png"
+      sizes="144x144"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-152x152.png"
+      sizes="152x152"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-180x180.png"
+      sizes="180x180"
+    />
+    <meta
+      name="msapplication-TileImage"
+      content="/assets/images/icons/app-icon"
+    />
+    <meta name="msapplication-TileColor" content="#111" />
+    <meta name="theme-color" content="#000" />
+
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-messaging.js"></script>
+
+    <script>
+      var firebaseConfig = {
+        apiKey: 'AIzaSyAX67-PvlNvYlHuXBBFmeJJklBddDMbI5k',
+        authDomain: 'godgatyou-e6b2b.firebaseapp.com',
+        databaseURL: 'https://godgatyou-e6b2b.firebaseio.com',
+        projectId: 'godgatyou-e6b2b',
+        storageBucket: 'godgatyou-e6b2b.appspot.com',
+        messagingSenderId: '1004052559188',
+        appId: '1:1004052559188:web:f353493a9e57f226e8c4c1',
+        measurementId: 'G-Z88TFZBBW7',
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      const messaging = firebase.messaging();
+
+      function askForNotificationPermission() {
+        messaging
+          .requestPermission()
+          .then(function () {
+            // configurePushSub();
+            displayConfirmNotification();
+            console.log('Have Permission');
+
+            if (isTokenSentToServer()) {
+              console.log('Token already saved.');
+            } else {
+              getRegToken();
+            }
+
+            // Hide all buttons
+            for (let i = 0; i < enableNotificationsButtons.length; i++) {
+              enableNotificationsButtons[i].style.display = 'none';
+            }
+          })
+          .catch(function (err) {
+            console.log('An error occurred while retrieving token. ', err);
+          });
+      }
+
+      function getRegToken() {
+        messaging
+          .getToken()
+          .then(function (currentToken) {
+            if (currentToken) {
+              saveToken(currentToken);
+              setTokenSentToServer(true);
+            } else {
+              console.log(
+                'No Instance ID token available. Request permission to generate one.'
+              );
+              setTokenSentToServer(false);
+            }
+          })
+          .catch(function (err) {
+            console.log('An error occurred while retrieving token. ', err);
+            // setTokenSentToServer(false);
+          });
+      }
+
+      function setTokenSentToServer(sent) {
+        window.localStorage.setItem('sentToServer', sent ? 1 : 0);
+      }
+
+      function isTokenSentToServer() {
+        return window.localStorage.getItem('sentToServer') == 1;
+      }
+    </script>
+  </head>
+
+  <body class="sun" id="body">
+    <main class="main-body">
+      <input
+        type="checkbox"
+        style="display: none"
+        name="navi"
+        id="navi"
+        class="input"
+      />
+      <label for="navi" class="mo">
+        <span></span>
+      </label>
+      <nav class="nav">
+        <div class="nav__logo">
+          <label class="nav__res--btn" for="navi">
+            <span></span>
+          </label>
+
+          <a href="/"
+            ><img id="logo" src="/assets/Logo/logo.png" alt="Logo"
+          /></a>
+        </div>
+        <ul class="nav__links">
+          <div>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/wallpaper/">Wallpapers</a></li>
+            <li><a href="/gallery/">Gallery</a></li>
+            <li><button class="enableNot">Enable Notifications</button></li>
+          </div>
+        </ul>
+        <span class="lnr lnr-sun" id="mode"></span>
+      </nav>
+
+      <div class="aboutUs">
+        <div class="aboutUs__head">
+          <figure class="aboutUs__logo">
+            <img src="/assets/Logo/logo.png" alt="Logo" />
+            <figcaption>
+              <p>It's all for the kingdom!</p>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="aboutUs__stats">
+          <div class="aboutUs__stats--stat">
+            <h2>
+              <span class="stat-rate" data-target="100000000000000000">0</span>
+            </h2>
+            <p>blessings</p>
+          </div>
+          <!-- <div class="aboutUs__stats--stat">
+            <h2 class="stat-rate" id="wallNum" data-target="">0</h2>
+            <p>wallpapers</p>
+          </div>
+          <div class="aboutUs__stats--stat">
+            <h2 class="stat-rate" data-target="500">0</h2>
+            <p>designers</p>
+          </div> -->
+        </div>
+        <div class="aboutUs__about">
+          <article>
+            <h2>Welcome to the GOD GAT YOU Website</h2>
+            <p style="margin: 0rem 2rem 0">
+              GOD GAT YOU is a platform about God almighty who is the Source of
+              everything created for this platform. We provide awesome God
+              inspired wallpapers, framed artworks, posters, apparels and
+              merchandise with the purpose of spreading God’s love to the people
+              through inspiring, motivating and giving.
+            </p>
+          </article>
+          <!-- <article>
+            <h2>Spreading the christian truth</h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo ea
+              nulla nemo repudiandae molestiae fugiat labore provident
+              exercitationem voluptatem et soluta, commodi blanditiis doloribus?
+              Ex, perspiciatis! Et hic voluptatum sunt sit voluptates impedit
+              nulla doloribus quae, ratione sed magnam maiores.
+            </p>
+          </article> -->
+        </div>
+        <div class="center-child">
+          <a
+            href="mailto:godgatyou@gmail.com?subject=Reg:Feedback"
+            class="btn btn--sm"
+            >Reach Us</a
+          >
+          <div class="sizedbox"></div>
+        </div>
+
+        <div class="aboutUs__contact">
+          <h1 class="sub--heading">Contact Us</h1>
+          <div class="social">
+            <h1>Connect with us on</h1>
+            <div>
+              <a href="https://www.instagram.com/godgatyou/" target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://www.facebook.com/Godgatyou/" target="_blank"
+                ><i class="fab fa-facebook-square"></i
+              ></a>
+
+              <a
+                href="https://www.youtube.com/channel/UCJE-5LMlnA6GBO7IEnAR08Q"
+                target="_blank"
+                ><i class="fab fa-youtube"></i
+              ></a>
+
+              <a href="https://twitter.com/godgatyou1" target="_blank"
+                ><i class="fab fa-twitter"></i
+              ></a>
+            </div>
+          </div>
+          <!-- <div class="news">
+              <div class="head">
+                <h1>Subscribe to our news letter</h1>
+                <p>your email will never be shared</p>
+              </div>
+              <div class="sub">
+                <form>
+                  <input type="email" id="email" placeholder="Enter email" />
+                  <button>Subscribe</button>
+                </form>
+              </div>
+            </div> -->
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="footer__credits">
+          <h2>
+            Copyright &copy; God Gat You 2020 ||
+            <a href="https://www.instagram.com/realkoda_p/" target="_blank">
+              Web design by Prosper Emebo</a
+            >
+          </h2>
+        </div>
+
+        <div id="banner1" class="banner">
+          <div class="message">
+            <h3 class="error-msg">You're online</h3>
+          </div>
+        </div>
+        <div id="banner2" class="banner">
+          <div class="message">
+            <h3 class="error-msg">You're online</h3>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <script src="/js/promise.js"></script>
+    <script src="/js/fetch.js"></script>
+    <script src="/js/idb.js"></script>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/about.js"></script>
+    <script src="/js/scroll.js"></script>
+    <script src="/js/mode.js"></script>
+  </body>
+</html>

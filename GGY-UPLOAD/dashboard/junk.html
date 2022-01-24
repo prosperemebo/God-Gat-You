@@ -1,0 +1,784 @@
+<div class="dashboard__login--dashboard">
+  <div class="dashboard__login--dashboard--nav">
+    <div class="dashboard__login--dashboard--nav--logo">
+      <img src="/assets/Logo/logo.png" draggable="false" alt="GogGatYou Logo" />
+      <h1 contenteditable="true" spellcheck="false">admin</h1>
+    </div>
+    <div class="dashboard__login--dashboard--nav--links">
+      <a href="#">Wallpapers</a>
+      <a href="#">Gallery</a>
+      <a href="#">Store</a>
+      <a href="#">Blog</a>
+      <a href="#">Categories</a>
+      <a href="#">Users</a>
+      <a href="#">Administrators</a>
+    </div>
+  </div>
+  <div class="dashboard__login--dashboard--main">
+    <div class="dashboard__login--dashboard--main--tags">
+      <div class="dashboard__login--dashboard--main--tags--actions">
+        <button id="upPost">Upload</button>
+      </div>
+      <div class="dashboard__login--dashboard--main--tags--cta">
+        <button>Log Out</button>
+      </div>
+    </div>
+    <div class="cta--dashboard">
+      <div class="cta--dashboard--head">
+        <h2>Upload</h2>
+        <i class="fas fa-times clUpload"></i>
+      </div>
+      <div class="cta--dashboard--body">
+        <div class="cta--dashboard--body--text">
+          <input
+            required=""
+            type="text"
+            name="wall-name"
+            placeholder="Wallpaper Name"
+          />
+          <input
+            required=""
+            type="text"
+            name="wall-alt"
+            placeholder="Wallpaper Alt Name"
+          />
+          <input
+            required=""
+            type="text"
+            name="wall-alt"
+            placeholder="Wallpaper Alt Name"
+          />
+          <select
+            id="categories"
+            required=""
+            type="text"
+            name="productCategory"
+            placeholder="Product Category"
+          >
+            <option value="">Empty</option>
+            <option value="mm">Tv</option>
+            <option value="mm">Machine</option>
+            <option value="mm">Laptop</option>
+          </select>
+        </div>
+        <textarea
+          required=""
+          type="text"
+          name="download-appreciation"
+          placeholder="Download Appreciation"
+        ></textarea>
+        <div class="cta--dashboard--body--files">
+          <label for="thumb"
+            ><i class="fas fa-plus"></i>
+            <p>Thumbnail</p>
+          </label>
+          <input required="" type="file" id="thumb" name="wall-thumbfile" />
+          <label for="desk"
+            ><i class="fas fa-plus"></i>
+            <p>Desktop</p>
+          </label>
+          <input required="" type="file" id="desk" name="wall-deskfile" />
+          <label for="tab"
+            ><i class="fas fa-plus"></i>
+            <p>Tablet</p>
+          </label>
+          <input required="" type="file" id="tab" name="wall-tabfile" />
+          <label for="mob"
+            ><i class="fas fa-plus"></i>
+            <p>Mobile</p>
+          </label>
+          <input required="" type="file" id="mob" name="wall-mobfile" />
+        </div>
+        <button type="submit" name="wall-submit">UPLOAD</button>
+      </div>
+    </div>
+    <div class="dashboard__login--dashboard--main--body">
+      <div class="dashboard__login--dashboard--main--body--stats">
+        <div class="statss">
+          <h1>500</h1>
+          <p>Wallpapers</p>
+        </div>
+        <div class="recents"></div>
+        <aside>
+          <h1>Recents</h1>
+          <div class="stacks">
+            <figure>
+              <img src="/assets/images/ggy_dummy_img.jpg" alt="img" />
+              <figcaption>
+                <h3>Thank God For May</h3>
+                <div class="stats">
+                  <div class="stats--sta">
+                    <h3>5</h3>
+                    <small>Likes</small>
+                  </div>
+                  <div class="stats--sta">
+                    <h3>5</h3>
+                    <small>Likes</small>
+                  </div>
+                  <div class="stats--sta">
+                    <h3>5</h3>
+                    <small>Likes</small>
+                  </div>
+                </div>
+              </figcaption>
+              <i class="fas fa-pen editPost"></i>
+            </figure>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="appreciation" id="Thanks" style="z-index: 3">
+  <a id="closeModal" style="cursor: pointer"
+    ><span class="lnr lnr-cross"></span
+  ></a>
+  <!-- GALLERY AND POST EDIT -->
+  <!-- GALLERY AND POST EDIT -->
+  <!-- <div class="appreciation__content">
+          <span class="dePo">Delete Post<i class="fas fa-times"></i></span>
+          <figure class="overview overview__gall" style="position: relative;">
+            <img
+              id="3"
+              src="/assets/uploads/gallery/galleryhappy-childrens-day.5f99dc05709cf0.35923540.jpg"
+              draggable="false"
+              alt="Happy childrens day God Gat You"
+            />
+            <div class="chImg"><h3>Change this?</h3></div>
+            <figcaption>
+              <h2 id="d_imgname">Thank God for 2020</h2>
+            </figcaption>
+          </figure>
+          <div class="gall_desc">
+            <div class="origin" style="flex: 1.3">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
+                dicta! Ipsam iusto porro et? Repellat quisquam itaque recusandae
+                nobis aliquid eligendi, voluptas, odit quibusdam atque doloribus
+                consequuntur quis sapiente totam!
+              </p>
+              <small>28 Oct, 2020</small>
+            </div>
+            <ul id="gall-cmt">
+              <li data-comment-id="42">
+                <h3>Presh Diva</h3>
+                <p>Sweet</p>
+                <small>11 Jan, 2021</small>
+                <i class="fas fa-times"></i>
+              </li>
+            </ul>
+          </div>
+        </div> -->
+  <!-- GALLERY AND POST EDIT -->
+  <!-- GALLERY AND POST EDIT -->
+  <!-- WALLPAPER AND STORE EDIT -->
+  <!-- WALLPAPER AND STORE EDIT -->
+  <!-- <div class="appreciation__content">
+          <span class="dePo">Delete Post<i class="fas fa-times"></i></span>
+          <figure class="overview" style="position: relative">
+            <img
+            id="overview__img"
+            src="/assets/uploads/wallpaper/wallpaperthank-god-for-2020-thumbanail.5fb2bff87212d0.41485748.jpg"
+            draggable="false"
+            alt="Thank God for 2020 God Gat You"
+            />
+            <div class="chImg"><h3>Change this?</h3></div>
+            <figcaption>
+              <h2 id="d_imgname">Thank God for 2020</h2>
+            </figcaption>
+          </figure>
+          <div class="desc">
+            <p class="desc_p" id="wallpaerAppre">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
+              dicta! Ipsam iusto porro et? Repellat quisquam itaque recusandae
+              nobis aliquid eligendi, voluptas, odit quibusdam atque doloribus
+              consequuntur quis sapiente totam!
+            </p>
+            <form class="download_form">
+              <button
+              class="download_paper"
+              type="submit"
+              name="downloadSub"
+              style="width: 100%; flex: none"
+              >
+              UPLOAD
+            </button>
+          </form>
+        </div>
+      </div> -->
+  <!-- WALLPAPER AND STORE EDIT -->
+  <!-- WALLPAPER AND STORE EDIT -->
+</div>
+
+
+<div class="cta--dashboard">
+              <div class="cta--dashboard--head">
+                <h2>Upload</h2>
+                <i class="fas fa-times clUpload"></i>
+              </div>
+              <div class="cta--dashboard--body">
+                <div class="cta--dashboard--body--text">
+                  <input
+                    required=""
+                    type="text"
+                    name="wall-name"
+                    placeholder="Wallpaper Name"
+                  />
+                  <input
+                    required=""
+                    type="text"
+                    name="wall-alt"
+                    placeholder="Wallpaper Alt Name"
+                  />
+                  <input
+                    required=""
+                    type="text"
+                    name="wall-alt"
+                    placeholder="Wallpaper Alt Name"
+                  />
+                  <select
+                    id="categories"
+                    required=""
+                    type="text"
+                    name="productCategory"
+                    placeholder="Product Category"
+                  >
+                    <option value="">Empty</option>
+                    <option value="mm">Tv</option>
+                    <option value="mm">Machine</option>
+                    <option value="mm">Laptop</option>
+                  </select>
+                </div>
+                <textarea
+                  required=""
+                  type="text"
+                  name="download-appreciation"
+                  placeholder="Download Appreciation"
+                ></textarea>
+                <div class="cta--dashboard--body--files">
+                  <label for="thumb"
+                    ><i class="fas fa-plus"></i>
+                    <p>Thumbnail</p>
+                  </label>
+                  <input required="" type="file" id="thumb" name="wall-thumbfile" />
+                  <label for="desk"
+                    ><i class="fas fa-plus"></i>
+                    <p>Desktop</p>
+                  </label>
+                  <input required="" type="file" id="desk" name="wall-deskfile" />
+                  <label for="tab"
+                    ><i class="fas fa-plus"></i>
+                    <p>Tablet</p>
+                  </label>
+                  <input required="" type="file" id="tab" name="wall-tabfile" />
+                  <label for="mob"
+                    ><i class="fas fa-plus"></i>
+                    <p>Mobile</p>
+                  </label>
+                  <input required="" type="file" id="mob" name="wall-mobfile" />
+                </div>
+                <button type="submit" name="wall-submit">UPLOAD</button>
+              </div>
+            </div>
+            <div class="dashboard__login--dashboard--main--body">
+              <div class="dashboard__login--dashboard--main--body--stats">
+                <div class="statss">
+                  <h1>500</h1>
+                  <p>Wallpapers</p>
+                </div>
+                <div class="recents"></div>
+                <aside>
+                  <h1>Recents</h1>
+                  <div class="stacks">
+                    <figure>
+                      <img src="/assets/images/ggy_dummy_img.jpg" alt="img" />
+                      <figcaption>
+                        <h3>Thank God For May</h3>
+                        <div class="stats">
+                          <div class="stats--sta">
+                            <h3>5</h3>
+                            <small>Likes</small>
+                          </div>
+                          <div class="stats--sta">
+                            <h3>5</h3>
+                            <small>Likes</small>
+                          </div>
+                          <div class="stats--sta">
+                            <h3>5</h3>
+                            <small>Likes</small>
+                          </div>
+                        </div>
+                      </figcaption>
+                      <i class="fas fa-pen editPost"></i>
+                    </figure>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="appreciation" id="Thanks" style="z-index: 3">
+          <a id="closeModal" style="cursor: pointer"
+            ><span class="lnr lnr-cross"></span
+          ></a>
+          <!-- GALLERY AND POST EDIT -->
+          <!-- GALLERY AND POST EDIT -->
+          <!-- <div class="appreciation__content">
+                  <span class="dePo">Delete Post<i class="fas fa-times"></i></span>
+                  <figure class="overview overview__gall" style="position: relative;">
+                    <img
+                      id="3"
+                      src="/assets/uploads/gallery/galleryhappy-childrens-day.5f99dc05709cf0.35923540.jpg"
+                      draggable="false"
+                      alt="Happy childrens day God Gat You"
+                    />
+                    <div class="chImg"><h3>Change this?</h3></div>
+                    <figcaption>
+                      <h2 id="d_imgname">Thank God for 2020</h2>
+                    </figcaption>
+                  </figure>
+                  <div class="gall_desc">
+                    <div class="origin" style="flex: 1.3">
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
+                        dicta! Ipsam iusto porro et? Repellat quisquam itaque recusandae
+                        nobis aliquid eligendi, voluptas, odit quibusdam atque doloribus
+                        consequuntur quis sapiente totam!
+                      </p>
+                      <small>28 Oct, 2020</small>
+                    </div>
+                    <ul id="gall-cmt">
+                      <li data-comment-id="42">
+                        <h3>Presh Diva</h3>
+                        <p>Sweet</p>
+                        <small>11 Jan, 2021</small>
+                        <i class="fas fa-times"></i>
+                      </li>
+                    </ul>
+                  </div>
+                </div> -->
+          <!-- GALLERY AND POST EDIT -->
+          <!-- GALLERY AND POST EDIT -->
+          <!-- WALLPAPER AND STORE EDIT -->
+          <!-- WALLPAPER AND STORE EDIT -->
+          <!-- <div class="appreciation__content">
+                  <span class="dePo">Delete Post<i class="fas fa-times"></i></span>
+                  <figure class="overview" style="position: relative">
+                    <img
+                    id="overview__img"
+                    src="/assets/uploads/wallpaper/wallpaperthank-god-for-2020-thumbanail.5fb2bff87212d0.41485748.jpg"
+                    draggable="false"
+                    alt="Thank God for 2020 God Gat You"
+                    />
+                    <div class="chImg"><h3>Change this?</h3></div>
+                    <figcaption>
+                      <h2 id="d_imgname">Thank God for 2020</h2>
+                    </figcaption>
+                  </figure>
+                  <div class="desc">
+                    <p class="desc_p" id="wallpaerAppre">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
+                      dicta! Ipsam iusto porro et? Repellat quisquam itaque recusandae
+                      nobis aliquid eligendi, voluptas, odit quibusdam atque doloribus
+                      consequuntur quis sapiente totam!
+                    </p>
+                    <form class="download_form">
+                      <button
+                      class="download_paper"
+                      type="submit"
+                      name="downloadSub"
+                      style="width: 100%; flex: none"
+                      >
+                      UPLOAD
+                    </button>
+                  </form>
+                </div>
+              </div> -->
+          <!-- WALLPAPER AND STORE EDIT -->
+          <!-- WALLPAPER AND STORE EDIT -->
+        </div>
+
+
+
+        // async function uploadPost() {
+//   var section = localStorage.getItem("section");
+
+//   if (section) {
+//     if (section === "wal") {
+//       var name = document.getElementById("wallName");
+//       var altName = document.getElementById("wallAltName");
+//       var body = document.getElementById("paperBody");
+//       var thumbnail = document.getElementById("thumb");
+//       var desktop = document.getElementById("desk");
+//       var tablet = document.getElementById("tab");
+//       var mobile = document.getElementById("mob");
+
+//       if (
+//         name.value.length > 0 &&
+//         altName.value.length > 0 &&
+//         body.value.length > 0 &&
+//         thumbnail.value.length > 0 &&
+//         desktop.value.length > 0 &&
+//         tablet.value.length > 0 &&
+//         mobile.value.length > 0
+//       ) {
+//         var formData = new FormData();
+//         formData.append("wall-name", name.value);
+//         formData.append("wall-alt", altName.value);
+//         formData.append("download-appreciation", body.value);
+//         formData.append("wall-thumbfile", thumbnail.files[0]);
+//         formData.append("wall-deskfile", desktop.files[0]);
+//         formData.append("wall-tabfile", tablet.files[0]);
+//         formData.append("wall-mobfile", mobile.files[0]);
+
+//         console.log(formData);
+
+//         fetch("/api/v1/wallpaper/upload.php", {
+//           method: "POST",
+//           body: formData,
+//         })
+//           // .then(function (res) {
+//           //   console.log(res);
+//           //   return res.json();
+//           // })
+//           // .then(function (data) {
+//           //   if (data.status) {
+//           //     name.value = "";
+//           //     altName.value = "";
+//           //     body.value = "";
+//           //     thumbnail.value = "";
+//           //     desktop.value = "";
+//           //     tablet.value = "";
+//           //     mobile.value = "";
+
+//           //     restartDashboard();
+
+//           //     document
+//           //       .querySelector(".cta--dashboard")
+//           //       .classList.remove("ready");
+
+//           //     errorSubMsg("Upload Success!", 300, "add", "#1b1b1b");
+//           //     errorSubMsg("Upload Success!", 5000, "remove", "#1b1b1b");
+//           //   } else {
+//           //     errorSubMsg(
+//           //       "An unknown error occurred please try again!",
+//           //       300,
+//           //       "add",
+//           //       "#1b1b1b"
+//           //     );
+//           //     errorSubMsg(
+//           //       "An unknown error occurred please try again!",
+//           //       5000,
+//           //       "remove",
+//           //       "#1b1b1b"
+//           //     );
+//           //   }
+//           // })
+//           .catch(function (err) {
+//             console.log(err);
+//             errorSubMsg(
+//               "An unknown error occurred please try again!",
+//               300,
+//               "add",
+//               "#1b1b1b"
+//             );
+//             errorSubMsg(
+//               "An unknown error occurred please try again!",
+//               5000,
+//               "remove",
+//               "#1b1b1b"
+//             );
+//           });
+//       } else {
+//         errorSubMsg("Please make all inputs valid!", 300, "add", "#1b1b1b");
+//         errorSubMsg("Please make all inputs valid!", 5000, "remove", "#1b1b1b");
+//       }
+//     }
+//   }
+// }
+
+if (
+            in_array($thumbFileActualExt, $allowed) && in_array($deskFileActualExt, $allowed) && in_array($tabFileActualExt, $allowed) && in_array($mobFileActualExt, $allowed)
+        ) {
+            if ($thumbFileError === 0 && $deskFileError === 0 && $tabFileError === 0 && $mobFileError === 0) {
+                if ($thumbFileSize < 10000000 && $deskFileSize < 10000000 && $tabFileSize < 10000000 && $mobFileSize < 10000000) {
+
+                    $this->thumbnail = $this->thumbnail . "." . uniqid("", true) . "." . $thumbFileActualExt;
+                    $this->desktop = $this->desktop . "." . $deskFileActualExt;
+                    $this->tablet = $this->tablet . "." . $tabFileActualExt;
+                    $this->mobile = $this->mobile . "." . $mobFileActualExt;
+                    // $this->thumbnail = $this->thumbnail.".".uniqid("", true).".".$thumbFileActualExt;
+                    // $this->desktop = $this->desktop.".".uniqid("", true).".".$deskFileActualExt;
+                    // $this->tablet = $this->tablet.".".uniqid("", true).".".$tabFileActualExt;
+                    // $this->mobile = $this->mobile.".".uniqid("", true).".".$mobFileActualExt;
+
+                    $this->thumbFileDestination = "../../../assets/uploads/wallpaper/wallpaper" . $this->thumbnail;
+                    $this->deskFileDestination = "../../../assets/uploads/wallpaper/" . $this->desktop;
+                    $this->tabFileDestination = "../../../assets/uploads/wallpaper/" . $this->tablet;
+                    $this->mobFileDestination = "../../../assets/uploads/wallpaper/" . $this->mobile;
+
+                    $sql = "SELECT * FROM " . $this->table;
+                    $stmt = $this->conn->prepare($sql);
+                    if (!$stmt->execute()) {
+                    } else {
+                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                        // $stmt->store_result();
+                        $rowCount = $stmt->rowCount();
+                        $this->order = $rowCount + 1;
+                        $this->downloads = 0;
+                        $this->likes = 0;
+
+                        $this->id = $this->res->create_id();
+
+                        $sql = "INSERT INTO " . $this->table . "
+                                    SET
+                                        paper_id = :id,
+                                        title = :name,
+                                        alt_title = :alt_name,
+                                        thumbnail = :thumb,
+                                        desktop = :desk,
+                                        tablet = :tab,
+                                        mobile = :mob,
+                                        `order` = :ord,
+                                        body = :body,
+                                        likes = :like,
+                                        downloads = :down";
+
+                        $stmt = $this->conn->prepare($sql);
+
+                        $stmt->bindParam(':id', $this->id);
+                        $stmt->bindParam(':name', $this->name);
+                        $stmt->bindParam(':alt_name', $this->alt_name);
+                        $stmt->bindParam(':thumb', $this->thumbnail);
+                        $stmt->bindParam(':desk', $this->desktop);
+                        $stmt->bindParam(':tab', $this->tablet);
+                        $stmt->bindParam(':mob', $this->mobile);
+                        $stmt->bindParam(':ord', $this->order);
+                        $stmt->bindParam(':body', $this->body);
+                        $stmt->bindParam(':like', $this->likes);
+                        $stmt->bindParam(':down', $this->downloads);
+
+                        // Execute query
+                        if (!$stmt->execute()) {
+                            echo "Execution error";
+                            return false;
+                        } else {
+
+                            // move_uploaded_file($thumbFileTempName, $thumbFileDestination);
+                            // move_uploaded_file($deskFileTempName, $deskFileDestination);
+                            // move_uploaded_file($tabFileTempName, $tabFileDestination);
+                            // move_uploaded_file($mobFileTempName, $mobFileDestination);
+                            return true;
+                        }
+                    }
+                } else {
+                    echo "Hey! Sorry The file size is too big; try contacting the developer Koda_P and the designer!";
+                    exit();
+                    return false;
+                }
+            } else {
+                echo "Hey! Sorry there was an error :( please contact the developer; Koda_P";
+                exit();
+                return false;
+            }
+        } else {
+            echo "Hey! Sorry you need to upload a proper file type :(";
+            print_r($thumbFileActualExt);
+            print_r($deskFileActualExt);
+            print_r($tabFileActualExt);
+            print_r($mobFileActualExt);
+            exit();
+            return false;
+        }
+
+        
+function prepareImgEdit(dashboard) {
+  var thumb = document.getElementById("thumb");
+  var desk = document.getElementById("desk");
+  var tab = document.getElementById("tab");
+  var mob = document.getElementById("mob");
+
+  var thumbR = document.getElementById(`${dashboard.tumID}`);
+  var deskR = document.getElementById(`${dashboard.desID}`);
+  var tabR = document.getElementById(`${dashboard.tabID}`);
+  var mobR = document.getElementById(`${dashboard.mobID}`);
+
+  if (thumbR.value.length > 5) {
+    thumb.value = thumbR.value;
+  }
+
+  if (deskR.value.length > 5) {
+    desk.value = deskR.value;
+  }
+
+  if (tabR.value.length > 5) {
+    tab.value = tabR.value;
+  }
+
+  if (mobR.value.length > 5) {
+    mob.value = mobR.value;
+  }
+}
+
+
+function swapImage(dashboard) {
+  document
+    .getElementById(`${dashboard.tumID}`)
+    .addEventListener("change", function () {
+      document.getElementsByClassName(`${dashboard.tumID}`)[0].style.display =
+        "block";
+    });
+  document
+    .getElementById(`${dashboard.desID}`)
+    .addEventListener("change", function () {
+      document.getElementsByClassName(`${dashboard.desID}`)[0].style.display =
+        "block";
+    });
+  document
+    .getElementById(`${dashboard.tabID}`)
+    .addEventListener("change", function () {
+      document.getElementsByClassName(`${dashboard.tabID}`)[0].style.display =
+        "block";
+    });
+  document
+    .getElementById(`${dashboard.mobID}`)
+    .addEventListener("change", function () {
+      document.getElementsByClassName(`${dashboard.mobID}`)[0].style.display =
+        "block";
+    });
+}
+
+<div class="cta--dashboard--body--text" style="display: none"> </div>
+                  
+                <div class="cta--dashboard--body--files">
+                  <input type="file" id="thumb" name="wall-thumbfile" />
+                  <input type="file" id="desk" name="wall-deskfile" />
+                  <input type="file" id="tab" name="wall-tabfile" />
+                  <input type="file" id="mob" name="wall-mobfile" />
+                </div>
+
+        
+  finalize() {
+    var markup = `
+      <input
+        required
+        type="text"
+        id="wallName"
+        name="wall-name"
+        placeholder="Wallpaper Name"
+        style="display: none"
+      />
+      <input
+        required
+        type="text"
+        id="wallAltName"
+        name="wall-alt"
+        placeholder="Wallpaper Alt Name"
+        style="display: none"
+      />
+    </div>
+      <input
+        required
+        type="text"
+        name="wall-id"
+        value="${this.id}"
+        placeholder="Wallpaper Alt Name"
+        style="display: none"
+      />
+    </div>
+    <textarea
+      required
+      type="text"
+      id="paperBody"
+      name="download-appreciation"
+      placeholder="Download Appreciation"
+      style="display: none"
+    ></textarea>
+    `;
+
+    var container = document.getElementById("swapImgNow");
+
+    if (container) {
+      container.insertAdjacentHTML("afterbegin", markup);
+      return true;
+    }
+  }
+
+          if (in_array($fileActualExt, $allowed)) {
+            if ($fileError === 0) {
+                if ($fileSize < 10000000) {
+                    $this->image = $this->image . "." . uniqid("", true) . "." . $fileActualExt;
+                    $this->destination = "../../../assets/uploads/gallery/gallery" . $this->image;
+
+                    if (empty($this->alt_name)) {
+                        header("Location: /dashboard/?upload=error");
+                        exit();
+                    } else {
+                        $sql = "SELECT * FROM " . $this->table;
+
+                        $stmt = $this->conn->prepare($sql);
+
+                        if ($stmt->execute()) {
+                            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                            $this->order = $stmt->rowCount() + 1;
+                            $this->likes = 0;
+                            $this->id = $this->generate->create_id();
+
+                            $sql = "INSERT INTO " . $this->table . "
+                                    SET `image_id` = :imgID,
+                                        `image` = :img,
+                                        `title` = :tit,
+                                        `alt_name` = :alt,
+                                        `body` = :bdy,
+                                        `likes` = :lk,
+                                        `order` = :ord
+                                ";
+
+                            $stmt = $this->conn->prepare($sql);
+
+                            $stmt->bindParam(':img', $this->image);
+                            $stmt->bindParam(':tit', $this->name);
+                            $stmt->bindParam(':alt', $this->alt_name);
+                            $stmt->bindParam(':bdy', $this->body);
+
+                            if ($stmt->execute()) {
+                                if (unlink("../../../assets/uploads/gallery/gallery".$this->prevImg)) {
+                                    return true;
+                                }
+
+                                return false;
+                            } else {
+                                return false;
+                            }
+                        } else {
+                            return false;
+                        }
+                    }
+                } else {
+                    echo "Hey! Sorry The file size is too big; try contacting the developer Prosper Emebo and the designer!";
+                    return false;
+                    exit();
+                }
+            } else {
+                echo "Hey! Sorry there was an error :( please contact the developer; Koda_P";
+                return false;
+                exit();
+            }
+        } else {
+            return false;
+            echo "Hey! Sorry you need to upload a proper file type :(";
+            exit();
+        }
+
+        <div class="confirmation confirm" id="confirmDelDel">
+        <div class="confirmation__edit">
+          <button class="delBB">Delete Category</button>
+          <div class="body">
+            <h1 contenteditable="true">Merch</h1>
+            <div class="cta">
+              <button>Cancel</button>
+              <button>Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
