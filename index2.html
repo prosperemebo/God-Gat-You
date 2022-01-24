@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>God Gat You || Home</title>
+    <link
+      rel="shortcut icon"
+      href="/assets/Logo/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/aos.css" />
+    <link rel="stylesheet" href="/css/css/all.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="God Gat You" />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-57x57.png"
+      sizes="57x57"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-60x60.png"
+      sizes="60x60"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-72x72.png"
+      sizes="72x72"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-76x76.png"
+      sizes="76x76"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-114x114.png"
+      sizes="114x114"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-120x120.png"
+      sizes="120x120"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-144x144.png"
+      sizes="144x144"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-152x152.png"
+      sizes="152x152"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/icons/apple-icon-180x180.png"
+      sizes="180x180"
+    />
+    <meta
+      name="msapplication-TileImage"
+      content="/assets/images/icons/app-icon"
+    />
+    <meta name="msapplication-TileColor" content="#0a0a0a" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-messaging.js"></script>
+
+    <script>
+      var firebaseConfig = {
+        apiKey: 'AIzaSyAX67-PvlNvYlHuXBBFmeJJklBddDMbI5k',
+        authDomain: 'godgatyou-e6b2b.firebaseapp.com',
+        databaseURL: 'https://godgatyou-e6b2b.firebaseio.com',
+        projectId: 'godgatyou-e6b2b',
+        storageBucket: 'godgatyou-e6b2b.appspot.com',
+        messagingSenderId: '1004052559188',
+        appId: '1:1004052559188:web:f353493a9e57f226e8c4c1',
+        measurementId: 'G-Z88TFZBBW7',
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      const messaging = firebase.messaging();
+
+      function askForNotificationPermission() {
+        messaging
+          .requestPermission()
+          .then(function () {
+            // configurePushSub();
+            displayConfirmNotification();
+            console.log('Have Permission');
+
+            if (isTokenSentToServer()) {
+              console.log('Token already saved.');
+            } else {
+              getRegToken();
+            }
+
+            // Hide all buttons
+            for (let i = 0; i < enableNotificationsButtons.length; i++) {
+              enableNotificationsButtons[i].style.display = 'none';
+            }
+          })
+          .catch(function (err) {
+            console.log('An error occurred while retrieving token. ', err);
+          });
+      }
+
+      function getRegToken() {
+        messaging
+          .getToken()
+          .then(function (currentToken) {
+            if (currentToken) {
+              saveToken(currentToken);
+              setTokenSentToServer(true);
+            } else {
+              console.log(
+                'No Instance ID token available. Request permission to generate one.'
+              );
+              setTokenSentToServer(false);
+            }
+          })
+          .catch(function (err) {
+            console.log('An error occurred while retrieving token. ', err);
+            // setTokenSentToServer(false);
+          });
+      }
+
+      function setTokenSentToServer(sent) {
+        window.localStorage.setItem('sentToServer', sent ? 1 : 0);
+      }
+
+      function isTokenSentToServer() {
+        return window.localStorage.getItem('sentToServer') == 1;
+      }
+    </script>
+  </head>
+
+  <body class="sun" id="body">
+    <main class="main-body">
+      <input
+        type="checkbox"
+        style="display: none"
+        name="navi"
+        id="navi"
+        class="input"
+      />
+      <label for="navi" class="mo">
+        <span></span>
+      </label>
+      <nav class="nav">
+        <div class="nav__logo">
+          <label class="nav__res--btn" for="navi">
+            <span></span>
+          </label>
+
+          <a href="/"
+            ><img id="logo" src="/assets/Logo/logo.png" alt="Logo"
+          /></a>
+        </div>
+        <ul class="nav__links">
+          <div>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/wallpaper/">Wallpapers</a></li>
+            <li><a href="/gallery/">Gallery</a></li>
+            <li><button class="enableNot">Enable Notifications</button></li>
+          </div>
+        </ul>
+        <span class="lnr lnr-sun" id="mode"></span>
+      </nav>
+      <div class="header">
+        <div class="header__slides">
+          <div
+            class="slide"
+            style="
+              background-image: url(./assets/images/ggy_dummy_img.jpg);
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+            "
+          >
+            <img
+              src="/assets/images/slide1.jpg"
+              draggable="false"
+              alt="Slider 1"
+            />
+          </div>
+          <div
+            class="slide"
+            style="
+              background-image: url(./assets/images/ggy_dummy_img.jpg);
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+            "
+          >
+            <img
+              draggable="false"
+              src="/assets/images/slide2.jpg"
+              alt="Slider 2"
+            />
+          </div>
+          <div
+            class="slide"
+            style="
+              background-image: url(./assets/images/ggy_dummy_img.jpg);
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+            "
+          >
+            <img
+              draggable="false"
+              src="/assets/images/slide3.jpg"
+              alt="Slider 3"
+            />
+          </div>
+          <div
+            class="slide"
+            style="
+              background-image: url(./assets/images/ggy_dummy_img.jpg);
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+            "
+          >
+            <img
+              draggable="false"
+              src="/assets/images/slide4.jpg"
+              alt="Slider 4"
+            />
+          </div>
+          <div
+            class="slide"
+            style="
+              background-image: url(./assets/images/ggy_dummy_img.jpg);
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+            "
+          >
+            <img
+              draggable="false"
+              src="/assets/images/slide5.jpg"
+              alt="Slider 5"
+            />
+          </div>
+        </div>
+        <div class="header__slides--controls">
+          <button id="prev-btn">
+            <span class="lnr lnr-chevron-left"></span>
+          </button>
+          <button id="next-btn">
+            <span class="lnr lnr-chevron-right"></span>
+          </button>
+        </div>
+      </div>
+
+      <section class="recents">
+        <h1 class="recents__heading sub--heading">Recent Wallpapers</h1>
+        <div class="recents__container"></div>
+      </section>
+
+      <section class="about">
+        <div class="sizedbox"></div>
+        <h1 class="about__heading sub--heading">It's all for the kingdom</h1>
+        <div class="sizedbox"></div>
+
+        <section class="about__body">
+          <section class="about__description">
+            <article class="about__article">
+              <h2 class="about__article--heading">
+                Inspiring Wallpapers Every Week
+              </h2>
+              <p>
+                We bring motivating and inspirating wallpapers every week to
+                help, inspire and change people’s perspectives towards the world
+                and life. And we do this in order of His coming.
+              </p>
+            </article>
+
+            <article class="about__article">
+              <h2 class="about__article--heading">
+                Exposing the christian truth
+              </h2>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Necessitatibus fugit exercitationem nostrum magnam.
+              </p>
+            </article>
+
+            <div class="about__cta">
+              <a href="/about/">Learn More &#8594;</a>
+            </div>
+          </section>
+
+          <section class="about__overview">
+            <div class="about__overview--1 about__overview--"></div>
+            <div class="about__overview--2 about__overview--"></div>
+            <div class="about__overview--3 about__overview--"></div>
+          </section>
+        </section>
+        <div class="sizedbox"></div>
+      </section>
+
+      <section class="wallpapers">
+        <h1 class="wallpapers__heading sub--heading">Gallery</h1>
+        <div class="sizedbox"></div>
+        <section class="wallpapers__wallpapers"></section>
+        <div class="sizedbox"></div>
+        <div class="wallpapers__cta">
+          <a class="btn" href="/gallery/">See All</a>
+        </div>
+        <div class="sizedbox"></div>
+      </section>
+      <div class="sizedbox"></div>
+      <div class="b">
+        <section class="post">
+          <div class="sizedbox"></div>
+          <h1 class="post__heading sub--heading">
+            Recent Posts From Instragram
+          </h1>
+          <div class="sizedbox"></div>
+          <div class="post__posts">
+            <!--<script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>-->
+            <!--<iframe-->
+            <!--  data-aos="zoom-in"-->
+            <!--  src="//lightwidget.com/widgets/19f6142bc0505969aa13f58a1dec7f82.html"-->
+            <!--  scrolling="no"-->
+            <!--  allowtransparency="true"-->
+            <!--  class="lightwidget-widget"-->
+            <!--  style="width: 100%; border: 0; overflow: hidden"-->
+            <!--></iframe>-->
+            <script
+              src="https://apps.elfsight.com/p/platform.js"
+              defer
+            ></script>
+            <div
+              class="elfsight-app-6faae809-379c-4992-a3c5-c3e6664537f9"
+            ></div>
+          </div>
+          <div class="sizedbox-sm"></div>
+          <div class="sizedbox-sm"></div>
+          <div class="wallpapers__cta">
+            <a
+              class="btn"
+              href="https://www.instagram.com/godgatyou/"
+              target="_blank"
+              >See All</a
+            >
+          </div>
+          <div class="sizedbox"></div>
+        </section>
+        <div class="sizedbox"></div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer__logo">
+        <a
+          href="/
+            "
+          ><img
+            src="/assets/Logo/logo.png"
+            draggable="false"
+            alt="GogGatYou Logo"
+        /></a>
+      </div>
+      <div class="footer__body">
+        <div class="footer__navigation">
+          <div>
+            <a href="/store/">Merch</a>
+            <a href="/about/">Contact</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/blog/">Blog</a>
+          </div>
+        </div>
+        <div class="footer__social">
+          <div>
+            <a href="https://www.instagram.com/godgatyou/" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.facebook.com/Godgatyou/" target="_blank"
+              ><i class="fab fa-facebook-square"></i
+            ></a>
+
+            <a
+              href="https://www.youtube.com/channel/UCJE-5LMlnA6GBO7IEnAR08Q"
+              target="_blank"
+              ><i class="fab fa-youtube"></i
+            ></a>
+
+            <a href="https://twitter.com/godgatyou1" target="_blank"
+              ><i class="fab fa-twitter"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__credits">
+        <h2>
+          Copyright &copy; God Gat You 2022 ||
+          <a href="https://www.instagram.com/prosperemebo/" target="_blank">
+            Reframed by Prosper Emebo</a
+          >
+        </h2>
+      </div>
+
+      <div id="banner1" class="banner">
+        <div class="message">
+          <h3 class="error-msg">You're online</h3>
+        </div>
+      </div>
+      <div id="banner2" class="banner">
+        <div class="message">
+          <h3 class="error-msg">You're online</h3>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/js/promise.js"></script>
+    <script src="/js/fetch.js"></script>
+    <script src="/js/idb.js"></script>
+    <script src="/js/utility.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/wallpaperModel.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/slider.js"></script>
+    <script src="/js/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="/js/recentSlider.js"></script>
+    <script src="/js/scroll.js"></script>
+    <script src="/js/mode.js"></script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+[16-Apr-2021 21:24:51 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getMessage() in /home2/godgatyo/public_html/config/Database.php:19
+Stack trace:
+#0 /home2/godgatyo/public_html/api/v1/gallery/read.php(11): Database->connect()
+#1 {main}
+  thrown in /home2/godgatyo/public_html/config/Database.php on line 19
+[16-Apr-2021 21:25:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getMessage() in /home2/godgatyo/public_html/config/Database.php:19
+Stack trace:
+#0 /home2/godgatyo/public_html/api/v1/gallery/read.php(11): Database->connect()
+#1 {main}
+  thrown in /home2/godgatyo/public_html/config/Database.php on line 19
+[16-Apr-2021 21:27:44 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getMessage() in /home2/godgatyo/public_html/config/Database.php:19
+Stack trace:
+#0 /home2/godgatyo/public_html/api/v1/gallery/read.php(11): Database->connect()
+#1 {main}
+  thrown in /home2/godgatyo/public_html/config/Database.php on line 19
+[16-Apr-2021 21:33:37 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'order' in 'order clause' in /home2/godgatyo/public_html/models/Gallery.php:47
+Stack trace:
+#0 /home2/godgatyo/public_html/models/Gallery.php(47): PDOStatement->execute()
+#1 /home2/godgatyo/public_html/api/v1/gallery/read.php(17): Gallery->read()
+#2 {main}
+  thrown in /home2/godgatyo/public_html/models/Gallery.php on line 47
+[16-Apr-2021 21:36:26 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'order' in 'order clause' in /home2/godgatyo/public_html/models/Gallery.php:47
+Stack trace:
+#0 /home2/godgatyo/public_html/models/Gallery.php(47): PDOStatement->execute()
+#1 /home2/godgatyo/public_html/api/v1/gallery/read.php(17): Gallery->read()
+#2 {main}
+  thrown in /home2/godgatyo/public_html/models/Gallery.php on line 47
+[16-Apr-2021 21:46:40 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'godgatyo_godgatyou.gallery' doesn't exist in /home2/godgatyo/public_html/models/Gallery.php:47
+Stack trace:
+#0 /home2/godgatyo/public_html/models/Gallery.php(47): PDOStatement->execute()
+#1 /home2/godgatyo/public_html/api/v1/gallery/read.php(17): Gallery->read()
+#2 {main}
+  thrown in /home2/godgatyo/public_html/models/Gallery.php on line 47
+[17-Apr-2021 13:48:40 UTC] PHP Warning:  unlink(/home2/godgatyo/public_html/assets/uploads/gallery/galleryhappy-fathers-day.60158c766568b2.48478535.jpg): No such file or directory in /home2/godgatyo/public_html/models/Gallery.php on line 668

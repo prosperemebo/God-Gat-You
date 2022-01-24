@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <meta charset="utf-8" />
+<meta property="og:type" content="NGO" />
+<meta property="og:site_name" content="God Gat You" />
+<meta property="og:title" content="God Gat You || download free Godly inspired wallpapers, and many more!" />
+<meta property="og:description"
+    content="God Gat You || It's all for the kingdom." />
+<meta property="og:url" content="/" />
+<meta property="og:image" content="https://www.godgatyou.com/assets/images/icons/app-icon-192x192.png" />
+<meta property="og:locale" content="en_NG" />
+<meta name="title" content="God Gat You || download free Godly inspired wallpapers, and many more!" />
+<meta name="robots" content="index, follow" />
+<meta name="description"
+    content="God Gat You || It's all for the kingdom." />
+
+    https://wa.me/?text=Are+You+Tired+of+Getting+Embarrassing+WhatsApp+status+Views%3F+https%3A%2F%2Fwassapviews.com
+
+https://www.facebook.com/sharer/sharer.php?u=https://wassapviews.com&amp;quote=Are%20You%20Tired%20of%20Getting%20Embarrassing%20WhatsApp%20status%20Views%3F%20https%3A%2F%2Fwassapviews.com
+
+https://twitter.com/intent/tweet?text=Are%20You%20Tired%20of%20Getting%20%20Embarrassing%20WhatsApp%20status%20Views%3F%20https%3A%2F%2Fwassapviews.com -->
+
+    <form action="send.php" method="post">
+      <input type="text" name="title" placeholder="title" />
+      <br />
+      <br />
+      <input type="text" name="body" placeholder="body" />
+      <br />
+      <br />
+      <input type="text" name="url" placeholder="url" />
+      <br />
+      <br />
+      <input type="text" name="action" placeholder="action" />
+      <br />
+      <br />
+      <button name="send_not">SEND</button>
+    </form>
+  </body>
+</html>
+
+<?php
+    define('SERVER_API_KEY', 'AAAA6cYyNVQ:APA91bHHUUmvuk1N9I-9ytxMzyWP__13XFGThV_aeqHZvg_KwEMOBYffoRTMNtupq03rC1K2OjhigaTMs7aCDES9GNlIFXezg3h-dwo3bCm3dXdDLK_p6Br903HA2eMIfbOD8z6gM-Pw');
+
+    class DbConnect {
+        private $host = 'localhost';
+        private $dbName = 'godgatyo_godgatyou';
+        private $user = 'godgatyo_godgatyou';
+        private $pass = 'kfny7;EJ.B5(';
+
+        public function connect() {
+            try {
+                $conn = new PDO('mysql:host=' . $this->host . '; dbname=' . $this->dbName, $this->user, $this->pass);
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                return $conn;
+            } catch( PDOException $e) {
+                echo 'Database Error: ' . $e->getMessage();
+            }
+        }
+    }
+    
+    // Get data
+    
+    if (isset($_POST['send_not'])) {
+    
+    $db = new DbConnect;
+    $conn = $db-> connect();
+    $stmt = $conn -> prepare("SELECT * FROM tokens");
+    $stmt->execute();
+    $tokens = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($tokens as $token) {
+        $registrationIds[] = $token['token'];
+    }
+
+    
+    $header = [
+        'Authorization: Key='.SERVER_API_KEY,
+        'Content-Type: Application/json'
+    ];
+        
+
+    // PLEASE INSERT NOTIFICATION BELOW //        
+    // PLEASE INSERT NOTIFICATION BELOW //        
+    // PLEASE INSERT NOTIFICATION BELOW //        
+    
+    $msg = [
+        'title' => $_POST['title'];,
+        'body' => "Sorry for the inconvenience the Godgatyou site is still in development; if you are seeing this notification please kindly ignore.",
+        'icon' => '/assets/images/icons/app-icon-96x96.png',
+        'image' => '/assets/images/about5.jpg',
+        'url' => "https://www.Godgatyou.com",
+        'action' => "Go To God Gat You"
+    ];
+
+    // PLEASE INSERT NOTIFICATION ABOVE //        
+    // PLEASE INSERT NOTIFICATION ABOVE //        
+    // PLEASE INSERT NOTIFICATION ABOVE //        
+    
+    $payload = [
+        'registration_ids' => $registrationIds,
+        'data' => $msg
+    ];
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://fcm.googleapis.com/fcm/send",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => json_encode( $payload ),
+  CURLOPT_HTTPHEADER => $header
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+echo $response;
+        
+    }
