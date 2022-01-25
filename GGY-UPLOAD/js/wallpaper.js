@@ -1,40 +1,40 @@
 var map;
 
 function loadSinglePaper() {
-  document.querySelector(".appreciation__content").innerHTML = "";
+  document.querySelector('.appreciation__content').innerHTML = '';
 
   // Get post id and resu
   var url = new URL(window.location.href);
   var id = new URLSearchParams(url.search);
-  var postId = id.get("wallpaper");
+  var postId = id.get('wallpaper');
 
-  var resu = JSON.parse(localStorage.getItem("resu"));
+  var resu = JSON.parse(localStorage.getItem('resu'));
 
   // Url
-  var url = "/api/v1/wallpaper/read-single.php";
+  var url = '/api/v1/wallpaper/read-single.php';
   var shData;
 
   if (map) {
     var page = map.indexOf(postId);
 
     if (page === 0) {
-      document.querySelector("#prev-btn").style.opacity = 0;
-      document.querySelector("#prev-btn").style.pointerEvents = "none";
-      document.querySelector("#prev-btn").style.visibility = "hidden";
+      document.querySelector('#prev-btn').style.opacity = 0;
+      document.querySelector('#prev-btn').style.pointerEvents = 'none';
+      document.querySelector('#prev-btn').style.visibility = 'hidden';
     } else {
-      document.querySelector("#prev-btn").style.opacity = 1;
-      document.querySelector("#prev-btn").style.pointerEvents = "all";
-      document.querySelector("#prev-btn").style.visibility = "visible";
+      document.querySelector('#prev-btn').style.opacity = 1;
+      document.querySelector('#prev-btn').style.pointerEvents = 'all';
+      document.querySelector('#prev-btn').style.visibility = 'visible';
     }
 
     if (page === map.length - 1) {
-      document.querySelector("#next-btn").style.opacity = 0;
-      document.querySelector("#next-btn").style.pointerEvents = "none";
-      document.querySelector("#next-btn").style.visibility = "hidden";
+      document.querySelector('#next-btn').style.opacity = 0;
+      document.querySelector('#next-btn').style.pointerEvents = 'none';
+      document.querySelector('#next-btn').style.visibility = 'hidden';
     } else {
-      document.querySelector("#next-btn").style.opacity = 1;
-      document.querySelector("#next-btn").style.pointerEvents = "all";
-      document.querySelector("#next-btn").style.visibility = "visible";
+      document.querySelector('#next-btn').style.opacity = 1;
+      document.querySelector('#next-btn').style.pointerEvents = 'all';
+      document.querySelector('#next-btn').style.visibility = 'visible';
     }
   }
 
@@ -43,21 +43,21 @@ function loadSinglePaper() {
     wallpaper: postId,
   };
 
-  if (resu === null || resu === "" || resu === " ") {
+  if (resu === null || resu === '' || resu === ' ') {
     pData.id = null;
   } else {
     pData.id = resu.second;
   }
 
   // New wallpaper
-  var wallpaper = new Wallpaper("appreciation__content");
+  var wallpaper = new Wallpaper('appreciation__content');
   wallpaper.insertLoader2();
 
   fetch(url, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
     },
     body: JSON.stringify(pData),
   })
@@ -77,15 +77,15 @@ function loadSinglePaper() {
       wallpaper.createPaper();
 
       if (data.data.liked) {
-        document.querySelector(".likeIcon").classList.remove("far");
-        document.querySelector(".likeIcon").classList.add("fas");
-        document.querySelector(".likeIcon").classList.add("liked");
+        document.querySelector('.likeIcon').classList.remove('far');
+        document.querySelector('.likeIcon').classList.add('fas');
+        document.querySelector('.likeIcon').classList.add('liked');
       }
 
-      var shbtn = document.querySelector("#shbtn");
+      var shbtn = document.querySelector('#shbtn');
 
       if (shbtn) {
-        shbtn.addEventListener("click", function (ev) {
+        shbtn.addEventListener('click', function (ev) {
           if (shData) {
             var pgTitle = `${shData.wallpaper_name} || God Gat You Wallpaper`;
             var pgUrl = window.location.href;
@@ -97,79 +97,79 @@ function loadSinglePaper() {
     })
     .catch(function (err) {
       wallpaper.removeLoader();
-      errorSubMsg("Failed to load", 2000, "add", "#1b1b1b");
-      errorSubMsg("Failed to load", 7000, "remove", "#1b1b1b");
+      errorSubMsg('Failed to load', 2000, 'add', '#1b1b1b');
+      errorSubMsg('Failed to load', 7000, 'remove', '#1b1b1b');
     });
 
-  document.querySelector(".appreciation").style.display = "block";
+  document.querySelector('.appreciation').style.display = 'block';
   document
-    .querySelector(".appreciation")
-    .setAttribute("data-wallpaper", postId);
+    .querySelector('.appreciation')
+    .setAttribute('data-wallpaper', postId);
 }
 
-document.querySelector("body").addEventListener("click", (e) => {
-  if (e.target.matches(".wallpapers__wallpaper, .wallpapers__wallpaper *")) {
+document.querySelector('body').addEventListener('click', (e) => {
+  if (e.target.matches('.wallpapers__wallpaper, .wallpapers__wallpaper *')) {
     var postId = e.target
-      .closest(".wallpapers__wallpaper")
-      .getAttribute("data-wallpaper");
+      .closest('.wallpapers__wallpaper')
+      .getAttribute('data-wallpaper');
 
     var refresh =
       window.location.protocol +
-      "//" +
+      '//' +
       window.location.host +
       window.location.pathname +
-      "?wallpaper=" +
+      '?wallpaper=' +
       postId;
-    window.history.pushState({ path: refresh }, "", refresh);
+    window.history.pushState({ path: refresh }, '', refresh);
 
     loadSinglePaper();
   }
 });
 
 // On Load
-window.addEventListener("load", function () {
+window.addEventListener('load', function () {
   // Get post id and resu
   var url = new URL(window.location.href);
   var id = new URLSearchParams(url.search);
-  var postId = id.get("wallpaper");
+  var postId = id.get('wallpaper');
 
   if (postId) {
     loadSinglePaper();
   }
 });
 
-document.querySelector("#closeModal").addEventListener("click", (e) => {
+document.querySelector('#closeModal').addEventListener('click', (e) => {
   var refresh =
     window.location.protocol +
-    "//" +
+    '//' +
     window.location.host +
     window.location.pathname;
-  window.history.pushState({ path: refresh }, "", refresh);
+  window.history.pushState({ path: refresh }, '', refresh);
 
-  document.querySelector(".appreciation__content").innerHTML = "";
-  document.querySelector(".appreciation").style.display = "none";
+  document.querySelector('.appreciation__content').innerHTML = '';
+  document.querySelector('.appreciation').style.display = 'none';
 });
 
-document.querySelector("#Thanks").addEventListener("click", (e) => {
-  if (e.target.id == "Thanks") {
+document.querySelector('#Thanks').addEventListener('click', (e) => {
+  if (e.target.id == 'Thanks') {
     var refresh =
       window.location.protocol +
-      "//" +
+      '//' +
       window.location.host +
       window.location.pathname;
-    window.history.pushState({ path: refresh }, "", refresh);
+    window.history.pushState({ path: refresh }, '', refresh);
 
-    document.querySelector(".appreciation__content").innerHTML = "";
-    document.querySelector(".appreciation").style.display = "none";
+    document.querySelector('.appreciation__content').innerHTML = '';
+    document.querySelector('.appreciation').style.display = 'none';
   }
 });
 
-document.querySelectorAll(".post__controls button").forEach(function (e) {
-  e.addEventListener("click", function (e) {
-    if (e.target.matches("#prev-btn, #prev-btn *")) {
+document.querySelectorAll('.post__controls button').forEach(function (e) {
+  e.addEventListener('click', function (e) {
+    if (e.target.matches('#prev-btn, #prev-btn *')) {
       var url = new URL(window.location.href);
       var id = new URLSearchParams(url.search);
-      var postId = id.get("wallpaper");
+      var postId = id.get('wallpaper');
 
       if (map) {
         if (postId) {
@@ -177,22 +177,22 @@ document.querySelectorAll(".post__controls button").forEach(function (e) {
 
           var refresh =
             window.location.protocol +
-            "//" +
+            '//' +
             window.location.host +
             window.location.pathname +
-            "?wallpaper=" +
+            '?wallpaper=' +
             pg;
-          window.history.pushState({ path: refresh }, "", refresh);
+          window.history.pushState({ path: refresh }, '', refresh);
 
           loadSinglePaper();
         }
       }
     }
 
-    if (e.target.matches("#next-btn, #next-btn *")) {
+    if (e.target.matches('#next-btn, #next-btn *')) {
       var url = new URL(window.location.href);
       var id = new URLSearchParams(url.search);
-      var postId = id.get("wallpaper");
+      var postId = id.get('wallpaper');
 
       if (map) {
         if (postId) {
@@ -200,12 +200,12 @@ document.querySelectorAll(".post__controls button").forEach(function (e) {
 
           var refresh =
             window.location.protocol +
-            "//" +
+            '//' +
             window.location.host +
             window.location.pathname +
-            "?wallpaper=" +
+            '?wallpaper=' +
             pg;
-          window.history.pushState({ path: refresh }, "", refresh);
+          window.history.pushState({ path: refresh }, '', refresh);
 
           loadSinglePaper();
         }
@@ -215,12 +215,12 @@ document.querySelectorAll(".post__controls button").forEach(function (e) {
 });
 
 document
-  .querySelector(".appreciation, .appreciation *")
-  .addEventListener("click", function (e) {
-    if (e.target.matches(".download_paper, .download_paper *")) {
-      var pc = document.querySelector("#pc");
-      var tablet = document.querySelector("#tablet");
-      var mobile = document.querySelector("#mobile");
+  .querySelector('.appreciation, .appreciation *')
+  .addEventListener('click', function (e) {
+    if (e.target.matches('.download_paper, .download_paper *')) {
+      var pc = document.querySelector('#pc');
+      var tablet = document.querySelector('#tablet');
+      var mobile = document.querySelector('#mobile');
 
       e.preventDefault();
 
@@ -229,18 +229,18 @@ document
         tablet.checked === true ||
         mobile.checked === true
       ) {
-        document.querySelector(".download_paper").classList.remove("disabled");
+        document.querySelector('.download_paper').classList.remove('disabled');
         errorSubMsg(
-          "Your download will start in a while!",
+          'Your download will start in a while!',
           1000,
-          "add",
-          "#1b1b1b"
+          'add',
+          '#1b1b1b'
         );
         errorSubMsg(
-          "Your download will start in a while!",
+          'Your download will start in a while!',
           4000,
-          "remove",
-          "#1b1b1b"
+          'remove',
+          '#1b1b1b'
         );
 
         if (deferredPrompt) {
@@ -249,39 +249,39 @@ document
           deferredPrompt.userChoice.then(function (choiceResult) {
             console.log(choiceResult.outcome);
 
-            if (choiceResult.outcome === "dismissed") {
-              console.log("User canclled installation!");
+            if (choiceResult.outcome === 'dismissed') {
+              console.log('User canclled installation!');
             } else {
-              console.log("App installed successfully!");
+              console.log('App installed successfully!');
             }
           });
         }
 
         // Get post id and resu
         var postId = e.target
-          .closest(".appreciation")
-          .getAttribute("data-wallpaper");
-        var resu = JSON.parse(localStorage.getItem("resu"));
+          .closest('.appreciation')
+          .getAttribute('data-wallpaper');
+        var resu = JSON.parse(localStorage.getItem('resu'));
 
         // Url
-        var url = "/api/v1/wallpaper/download.php";
+        var url = '/api/v1/wallpaper/download.php';
 
         // data
         var pData = {
           wallpaper: postId,
         };
 
-        if (resu === null || resu === "" || resu === " ") {
+        if (resu === null || resu === '' || resu === ' ') {
           pData.id = null;
         } else {
           pData.id = resu.second;
         }
 
         fetch(url, {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
           },
           body: JSON.stringify(pData),
         })
@@ -297,8 +297,8 @@ document
           `;
 
               document
-                .querySelector(".downLinks")
-                .insertAdjacentHTML("afterbegin", markup1);
+                .querySelector('.downLinks')
+                .insertAdjacentHTML('afterbegin', markup1);
             }
 
             if (tablet.checked) {
@@ -307,8 +307,8 @@ document
           `;
 
               document
-                .querySelector(".downLinks")
-                .insertAdjacentHTML("afterbegin", markup2);
+                .querySelector('.downLinks')
+                .insertAdjacentHTML('afterbegin', markup2);
             }
 
             if (mobile.checked) {
@@ -317,99 +317,99 @@ document
           `;
 
               document
-                .querySelector(".downLinks")
-                .insertAdjacentHTML("afterbegin", markup3);
+                .querySelector('.downLinks')
+                .insertAdjacentHTML('afterbegin', markup3);
             }
 
             function download() {
-              var link = document.querySelectorAll(".downlink");
+              var link = document.querySelectorAll('.downlink');
               link.forEach((e) => {
                 e.click();
               });
             }
             download();
-            document.querySelector(".download_form").reset();
-            document.querySelector(".downLinks").innerHTML = "";
-            document.querySelector(".downNum").textContent = data.downloads;
-            document.querySelector(".download_paper").classList.add("disabled");
+            document.querySelector('.download_form').reset();
+            document.querySelector('.downLinks').innerHTML = '';
+            document.querySelector('.downNum').textContent = data.downloads;
+            document.querySelector('.download_paper').classList.add('disabled');
           })
           .catch(function (err) {
-            errorSubMsg("oops! Something went wrong!", 5000, "add", "#1b1b1b");
+            errorSubMsg('oops! Something went wrong!', 5000, 'add', '#1b1b1b');
             errorSubMsg(
-              "oops! Something went wrong!",
+              'oops! Something went wrong!',
               9000,
-              "remove",
-              "#1b1b1b"
+              'remove',
+              '#1b1b1b'
             );
           });
       } else {
-        document.querySelector(".download_paper").classList.add("disabled");
-        errorSubMsg("Please select device", 300, "add", "#1b1b1b");
-        errorSubMsg("Please select device", 4000, "remove", "#1b1b1b");
+        document.querySelector('.download_paper').classList.add('disabled');
+        errorSubMsg('Please select device', 300, 'add', '#1b1b1b');
+        errorSubMsg('Please select device', 4000, 'remove', '#1b1b1b');
       }
     }
 
-    if (e.target.matches("#forminn, #forminn *")) {
-      var pc = document.querySelector("#pc");
-      var tablet = document.querySelector("#tablet");
-      var mobile = document.querySelector("#mobile");
+    if (e.target.matches('#forminn, #forminn *')) {
+      var pc = document.querySelector('#pc');
+      var tablet = document.querySelector('#tablet');
+      var mobile = document.querySelector('#mobile');
 
       if (
         pc.checked === true ||
         tablet.checked === true ||
         mobile.checked === true
       ) {
-        document.querySelector(".download_paper").classList.remove("disabled");
+        document.querySelector('.download_paper').classList.remove('disabled');
       } else {
-        document.querySelector(".download_paper").classList.add("disabled");
+        document.querySelector('.download_paper').classList.add('disabled');
       }
     }
 
-    if (e.target.matches(".like, .like *")) {
-      var resu = JSON.parse(localStorage.getItem("resu")).second;
+    if (e.target.matches('.like, .like *')) {
+      var resu = JSON.parse(localStorage.getItem('resu')).second;
 
       function likePost() {
         // Get post id and resu
         var postId = e.target
-          .closest(".appreciation")
-          .getAttribute("data-wallpaper");
-        var resu = JSON.parse(localStorage.getItem("resu"));
+          .closest('.appreciation')
+          .getAttribute('data-wallpaper');
+        var resu = JSON.parse(localStorage.getItem('resu'));
 
         // Url
-        var url = "/api/v1/wallpaper/like.php";
+        var url = '/api/v1/wallpaper/like.php';
 
         // data
         var pData = {
           wallpaper: postId,
         };
 
-        if (resu === null || resu === "" || resu === " ") {
+        if (resu === null || resu === '' || resu === ' ') {
           pData.id = null;
         } else {
           pData.id = resu.second;
         }
 
-        if (!document.querySelector(".likeIcon").classList.contains("liked")) {
-          var val = +document.querySelector(".stats .like span").innerHTML;
+        if (!document.querySelector('.likeIcon').classList.contains('liked')) {
+          var val = +document.querySelector('.stats .like span').innerHTML;
           val = val + 1;
-          document.querySelector(".stats .like span").textContent = val;
-          document.querySelector(".likeIcon").classList.remove("far");
-          document.querySelector(".likeIcon").classList.add("fas");
-          document.querySelector(".likeIcon").classList.add("liked");
+          document.querySelector('.stats .like span').textContent = val;
+          document.querySelector('.likeIcon').classList.remove('far');
+          document.querySelector('.likeIcon').classList.add('fas');
+          document.querySelector('.likeIcon').classList.add('liked');
         } else {
-          var val = +document.querySelector(".stats .like span").innerHTML;
+          var val = +document.querySelector('.stats .like span').innerHTML;
           val = val - 1;
-          document.querySelector(".stats .like span").textContent = val;
-          document.querySelector(".likeIcon").classList.add("far");
-          document.querySelector(".likeIcon").classList.remove("fas");
-          document.querySelector(".likeIcon").classList.remove("liked");
+          document.querySelector('.stats .like span').textContent = val;
+          document.querySelector('.likeIcon').classList.add('far');
+          document.querySelector('.likeIcon').classList.remove('fas');
+          document.querySelector('.likeIcon').classList.remove('liked');
         }
 
         fetch(url, {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
           },
           body: JSON.stringify(pData),
         })
@@ -417,53 +417,53 @@ document
             return res.json();
           })
           .then(function (data) {
-            document.querySelector(".stats .like span").textContent =
+            document.querySelector('.stats .like span').textContent =
               data.likes;
 
             if (!data.unliked) {
-              document.querySelector(".likeIcon").classList.remove("far");
-              document.querySelector(".likeIcon").classList.add("fas");
-              document.querySelector(".likeIcon").classList.add("liked");
+              document.querySelector('.likeIcon').classList.remove('far');
+              document.querySelector('.likeIcon').classList.add('fas');
+              document.querySelector('.likeIcon').classList.add('liked');
             } else {
-              document.querySelector(".likeIcon").classList.add("far");
-              document.querySelector(".likeIcon").classList.remove("fas");
-              document.querySelector(".likeIcon").classList.remove("liked");
+              document.querySelector('.likeIcon').classList.add('far');
+              document.querySelector('.likeIcon').classList.remove('fas');
+              document.querySelector('.likeIcon').classList.remove('liked');
             }
           })
           .catch(function (err) {
-            errorSubMsg("Failed to like", 1000, "add", "#1b1b1b");
-            errorSubMsg("Failed to like", 5000, "remove", "#1b1b1b");
+            errorSubMsg('Failed to like', 1000, 'add', '#1b1b1b');
+            errorSubMsg('Failed to like', 5000, 'remove', '#1b1b1b');
           });
       }
 
-      if (resu === null || resu === "" || resu === " ") {
+      if (resu === null || resu === '' || resu === ' ') {
         welcome(300);
 
-        document.querySelector("#body").addEventListener("click", function (e) {
-          if (e.target.matches(".btn-close, .btn-close *")) {
-            document.querySelector(".welcome").classList.add("closed");
+        document.querySelector('#body').addEventListener('click', function (e) {
+          if (e.target.matches('.btn-close, .btn-close *')) {
+            document.querySelector('.welcome').classList.add('closed');
 
             var data = {
-              first: "GODGATYOUUSER",
-              second: "",
+              first: 'GODGATYOUUSER',
+              second: '',
             };
-            localStorage.setItem("resu", JSON.stringify(data));
+            localStorage.setItem('resu', JSON.stringify(data));
 
             errorSubMsg(
-              "We need your name for you to like a post!",
+              'We need your name for you to like a post!',
               300,
-              "add",
-              "#1b1b1b"
+              'add',
+              '#1b1b1b'
             );
             errorSubMsg(
-              "We need your name for you to like a post!",
+              'We need your name for you to like a post!',
               5000,
-              "remove",
-              "#1b1b1b"
+              'remove',
+              '#1b1b1b'
             );
           }
 
-          if (e.target.matches("form .enable")) {
+          if (e.target.matches('form .enable')) {
             setTimeout(() => {
               likePost();
             }, 300);
@@ -482,11 +482,11 @@ var amount = 15;
 var endOfPage = false;
 var url = `/api/v1/wallpaper/read-index.php?a=${amount}&p=${page}`;
 
-var wallpapers = new Wallpaper("wallpapers__wallpapers");
+var wallpapers = new Wallpaper('wallpapers__wallpapers');
 
 // Inserting Loaders
 wallpapers.insertLoader();
-document.querySelector(".post__controls").style.display = "none";
+document.querySelector('.post__controls').style.display = 'none';
 
 // Fething wallapers
 fetch(url)
@@ -499,13 +499,13 @@ fetch(url)
     }
 
     if (map) {
-      document.querySelector(".post__controls").style.display = "flex";
+      document.querySelector('.post__controls').style.display = 'flex';
     }
 
     networkDataRecieved = true;
     // Removing Loaders
     wallpapers.removeLoader();
-    console.log("From network", data);
+    console.log('From network', data);
 
     // Clearing wallpapers
     wallpapers.clearCards();
@@ -525,10 +525,10 @@ fetch(url)
 
 function fetchMoreWallpapers() {
   if (!endOfPage) {
-    document.querySelector(".err").innerHTML = "";
+    document.querySelector('.err').innerHTML = '';
 
     // Inserting Loaders
-    wallpapers.insertLoader3("err");
+    wallpapers.insertLoader3('err');
 
     // Fething wallapers
     fetch(url)
@@ -547,8 +547,8 @@ function fetchMoreWallpapers() {
           // Removing Loaders
           wallpapers.removeLoader();
 
-          errorSubMsg("Failed to load", 1000, "add", "#1b1b1b");
-          errorSubMsg("Failed to load", 5000, "remove", "#1b1b1b");
+          errorSubMsg('Failed to load', 1000, 'add', '#1b1b1b');
+          errorSubMsg('Failed to load', 5000, 'remove', '#1b1b1b');
         }
       )
       .then(function (data) {
@@ -559,7 +559,7 @@ function fetchMoreWallpapers() {
 
         // Removing Loaders
         wallpapers.removeLoader();
-        console.log("From network", data);
+        console.log('From network', data);
 
         if (data.status) {
           // Inserting wallpapers into dom
@@ -584,23 +584,23 @@ function fetchMoreWallpapers() {
                        "
                      >
                        <em
-                         >It seems like you've come to the end!</em
+                         >It seems like you've come to the end! But regardless God Gat You.</em
                        >
                      </p>`;
 
           endOfPage = true;
 
-          document.querySelector(".err").innerHTML = "";
-          document.querySelector(".err").innerHTML = markup;
+          document.querySelector('.err').innerHTML = '';
+          document.querySelector('.err').innerHTML = markup;
         }
         currentData = true;
       });
   }
 }
 
-window.addEventListener("scroll", function (e) {
+window.addEventListener('scroll', function (e) {
   var scrollTop = document.documentElement.scrollTop;
-  var scrollHeight = document.querySelector(".main-body").clientHeight;
+  var scrollHeight = document.querySelector('.main-body').clientHeight;
   var clientHeight = document.documentElement.clientHeight;
 
   if (scrollTop + clientHeight >= scrollHeight - 170) {
@@ -612,12 +612,12 @@ window.addEventListener("scroll", function (e) {
   }
 });
 
-if ("indexedDB" in window) {
-  readAllData("wallpapers").then(function (data) {
+if ('indexedDB' in window) {
+  readAllData('wallpapers').then(function (data) {
     if (!networkDataRecieved && !currentData) {
       if (data.length > 0) {
-        console.log("From cache: ", data);
-        document.querySelector(".wallpapers__wallpapers").innerHTML = "";
+        console.log('From cache: ', data);
+        document.querySelector('.wallpapers__wallpapers').innerHTML = '';
 
         var orderedData = [];
 
@@ -670,12 +670,12 @@ if ("indexedDB" in window) {
         wallpapers.removeLoader();
 
         document
-          .querySelector(".wallpapers__wallpapers")
-          .insertAdjacentHTML("afterbegin", markup);
+          .querySelector('.wallpapers__wallpapers')
+          .insertAdjacentHTML('afterbegin', markup);
       }
 
       window.addEventListener(
-        "online",
+        'online',
         function (e) {
           if (currentData === false && networkDataRecieved === false) {
             page = 1;
@@ -692,12 +692,12 @@ if ("indexedDB" in window) {
                 }
 
                 if (map) {
-                  document.querySelector(".post__controls").style.display =
-                    "flex";
+                  document.querySelector('.post__controls').style.display =
+                    'flex';
                 }
 
                 networkDataRecieved = true;
-                console.log("From network", data);
+                console.log('From network', data);
 
                 // Clearing wallpapers
                 wallpapers.clearCards();

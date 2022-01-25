@@ -15,7 +15,7 @@ class Store {
 
   async fetchTags() {
     try {
-      var res = await fetch("/api/v1/category/read-category.php");
+      var res = await fetch('/api/v1/category/read-category.php');
       var data = await res.json();
       store.error = null;
       return data.data;
@@ -67,16 +67,16 @@ class Store {
   loadTags() {
     var markup = `<button class="tag" data-category="${this.category_id}">${this.tag}</button>`;
 
-    document.querySelector(`.tags`).insertAdjacentHTML("beforeend", markup);
+    document.querySelector(`.tags`).insertAdjacentHTML('beforeend', markup);
   }
 
   async addToCart() {
     var id = this.id;
-    var cart = JSON.parse(localStorage.getItem("cart"));
+    var cart = JSON.parse(localStorage.getItem('cart'));
 
     if (cart === null) {
       cart = [];
-      localStorage.setItem("cart", JSON.stringify(cart));
+      localStorage.setItem('cart', JSON.stringify(cart));
     }
 
     try {
@@ -84,27 +84,27 @@ class Store {
       var product = await res.json();
       product.data.quantity = 1;
       cart.push(product.data).data;
-      localStorage.setItem("cart", JSON.stringify(cart));
-      document.querySelector("#cart-quantity").textContent = cart.length;
+      localStorage.setItem('cart', JSON.stringify(cart));
+      document.querySelector('#cart-quantity').textContent = cart.length;
       return cart;
     } catch (err) {
       console.log(err);
-      errorSubMsg("Failed to add!", 1000, "add", "#1b1b1b");
-      errorSubMsg("Failed to add!", 4000, "remove", "#1b1b1b");
+      errorSubMsg('Failed to add!', 1000, 'add', '#1b1b1b');
+      errorSubMsg('Failed to add!', 4000, 'remove', '#1b1b1b');
       return false;
     }
   }
 
   loadCartProducts() {
     function numberWithCommas(x) {
-      var parts = x.toString().split(".");
-      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      return parts.join(".");
+      var parts = x.toString().split('.');
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      return parts.join('.');
     }
 
-    var msg = document.querySelector("#emptyy");
+    var msg = document.querySelector('#emptyy');
     if (msg) {
-      document.querySelector("#emptyy").parentElement.removeChild(msg);
+      document.querySelector('#emptyy').parentElement.removeChild(msg);
     }
 
     var markup = `
@@ -135,8 +135,8 @@ class Store {
               <span style="cursor: pointer;" id="delCartItem" class="lnr lnr-cross"></span>
           </figcaption>
       </figure> `;
-    var trolley = document.querySelector("#cartOfProducts");
-    trolley.insertAdjacentHTML("beforeend", markup);
+    var trolley = document.querySelector('#cartOfProducts');
+    trolley.insertAdjacentHTML('beforeend', markup);
   }
 
   // loadCategory() {
@@ -157,9 +157,9 @@ class Store {
 
   loadProducts() {
     function numberWithCommas(x) {
-      var parts = x.toString().split(".");
-      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      return parts.join(".");
+      var parts = x.toString().split('.');
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      return parts.join('.');
     }
 
     var markup = `
@@ -186,14 +186,14 @@ class Store {
 
     document
       .querySelector(`.${this.parent}`)
-      .insertAdjacentHTML("beforeend", markup);
+      .insertAdjacentHTML('beforeend', markup);
   }
 
   describeProduct() {
     function numberWithCommas(x) {
-      var parts = x.toString().split(".");
-      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      return parts.join(".");
+      var parts = x.toString().split('.');
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      return parts.join('.');
     }
 
     var markup = `
@@ -226,10 +226,10 @@ class Store {
       </div>
     `;
 
-    var parent = document.querySelector(".appreciation__content");
+    var parent = document.querySelector('.appreciation__content');
 
-    parent.innerHTML = "";
-    parent.insertAdjacentHTML("beforeend", markup);
+    parent.innerHTML = '';
+    parent.insertAdjacentHTML('beforeend', markup);
   }
 
   insertLoader() {
@@ -244,7 +244,7 @@ class Store {
 
     document
       .querySelector(`.${this.parent}`)
-      .insertAdjacentHTML("afterend", markup);
+      .insertAdjacentHTML('afterend', markup);
   }
 
   insertLoader2() {
@@ -259,7 +259,7 @@ class Store {
 
     document
       .querySelector(`.${this.parent}`)
-      .insertAdjacentHTML("beforeend", markup);
+      .insertAdjacentHTML('beforeend', markup);
   }
 
   insertLoader3(pp) {
@@ -272,13 +272,13 @@ class Store {
             </div>
         `;
 
-    document.querySelector(`.${pp}`).insertAdjacentHTML("beforeend", markup);
+    document.querySelector(`.${pp}`).insertAdjacentHTML('beforeend', markup);
   }
 
   removeLoader() {
-    var loader = document.querySelector(".loader");
+    var loader = document.querySelector('.loader');
     if (loader)
-      document.querySelector(".loader").parentElement.removeChild(loader);
+      document.querySelector('.loader').parentElement.removeChild(loader);
   }
 
   clearCards() {
@@ -292,7 +292,7 @@ class Store {
 
 // Declaring Variables
 var store = new Store();
-var slider = document.querySelector(".tags");
+var slider = document.querySelector('.tags');
 var networkDataRecieved = false;
 var currentData = false;
 var endOfPage = false;
@@ -303,7 +303,7 @@ var startX;
 
 // Load Products Into DOM
 function loadProducts(products) {
-  store.parent = "wallpapers__wallpapers--long";
+  store.parent = 'wallpapers__wallpapers--long';
 
   if (!products) {
     var markup = `
@@ -322,13 +322,13 @@ function loadProducts(products) {
       </p>
     `;
     document
-      .querySelector(".wallpapers__wallpapers--long")
-      .insertAdjacentHTML("afterend", markup);
+      .querySelector('.wallpapers__wallpapers--long')
+      .insertAdjacentHTML('afterend', markup);
   } else {
-    var msg = document.querySelector(".error-mm");
+    var msg = document.querySelector('.error-mm');
 
     if (msg) {
-      document.querySelector(".error-mm").parentElement.removeChild(msg);
+      document.querySelector('.error-mm').parentElement.removeChild(msg);
     }
 
     products.forEach(function (product) {
@@ -347,10 +347,10 @@ function loadProducts(products) {
 
 // Load Category Tags
 async function loadTags() {
-  var msg = document.querySelector(".error-mm");
+  var msg = document.querySelector('.error-mm');
 
   if (msg) {
-    document.querySelector(".error-mm").parentElement.removeChild(msg);
+    document.querySelector('.error-mm').parentElement.removeChild(msg);
   }
 
   var categories = await store.fetchTags();
@@ -367,23 +367,23 @@ async function loadAllProducts() {
   networkDataRecieved = false;
   currentData = false;
 
-  var msg = document.querySelector(".error-mm");
+  var msg = document.querySelector('.error-mm');
   if (msg) {
-    document.querySelector(".error-mm").parentElement.removeChild(msg);
+    document.querySelector('.error-mm').parentElement.removeChild(msg);
   }
 
-  var msg = document.querySelector(".off_msg");
+  var msg = document.querySelector('.off_msg');
   if (msg) {
-    document.querySelector(".off_msg").parentElement.removeChild(msg);
+    document.querySelector('.off_msg').parentElement.removeChild(msg);
   }
 
-  store.parent = "wallpapers__wallpapers--long";
+  store.parent = 'wallpapers__wallpapers--long';
   store.removeLoader();
   store.insertLoader();
   // store.results = 2;
   // store.page = 1;
   var products = await store.fetchProducts();
-  console.log("From Network", products);
+  console.log('From Network', products);
 
   if (!store.error) {
     networkDataRecieved = true;
@@ -415,20 +415,20 @@ async function loadAllProducts() {
 }
 
 async function addToCart() {
-  var resu = JSON.parse(localStorage.getItem("resu"));
+  var resu = JSON.parse(localStorage.getItem('resu'));
 
-  if (resu === null || resu === "" || resu === " ") {
+  if (resu === null || resu === '' || resu === ' ') {
     var data = {
-      first: "GODGATYOUUSER",
-      second: "",
+      first: 'GODGATYOUUSER',
+      second: '',
     };
-    localStorage.setItem("resu", JSON.stringify(data));
+    localStorage.setItem('resu', JSON.stringify(data));
   }
 
-  resu = JSON.parse(localStorage.getItem("resu"));
+  resu = JSON.parse(localStorage.getItem('resu'));
 
-  if (resu.second !== null || resu.second !== "" || resu.second !== " ") {
-    await fetch("/api/v1/purchases/read-user.php?id=" + resu.second)
+  if (resu.second !== null || resu.second !== '' || resu.second !== ' ') {
+    await fetch('/api/v1/purchases/read-user.php?id=' + resu.second)
       .then(function (res) {
         return res.json();
       })
@@ -438,20 +438,20 @@ async function addToCart() {
           return true;
         } else {
           errorSubMsg(
-            "Complete your previous purchase first!",
+            'Complete your previous purchase first!',
             1000,
-            "add",
-            "#1b1b1b"
+            'add',
+            '#1b1b1b'
           );
           errorSubMsg(
-            "Complete your previous purchase first!",
+            'Complete your previous purchase first!',
             4000,
-            "remove",
-            "#1b1b1b"
+            'remove',
+            '#1b1b1b'
           );
 
           setTimeout(function () {
-            window.location = "/store/pay/?pay=" + data.data.purchase_id;
+            window.location = '/store/pay/?pay=' + data.data.purchase_id;
           }, 3500);
         }
       });
@@ -467,12 +467,12 @@ async function loadCategory(category) {
   networkDataRecieved = false;
   currentData = false;
 
-  var msg = document.querySelector(".error-mm");
+  var msg = document.querySelector('.error-mm');
   if (msg) {
-    document.querySelector(".error-mm").parentElement.removeChild(msg);
+    document.querySelector('.error-mm').parentElement.removeChild(msg);
   }
 
-  store.parent = "wallpapers__wallpapers--long";
+  store.parent = 'wallpapers__wallpapers--long';
   store.removeLoader();
   store.insertLoader();
   store.category = category;
@@ -480,7 +480,7 @@ async function loadCategory(category) {
   // store.page = 1;
 
   var products = await store.fetchCategories();
-  console.log("From Network", products);
+  console.log('From Network', products);
 
   if (!store.error) {
     networkDataRecieved = true;
@@ -511,9 +511,9 @@ async function loadCategory(category) {
 }
 
 async function fetchMoreProducts() {
-  var msg = document.querySelector(".off_msg");
+  var msg = document.querySelector('.off_msg');
   if (msg) {
-    document.querySelector(".off_msg").parentElement.removeChild(msg);
+    document.querySelector('.off_msg').parentElement.removeChild(msg);
   }
 
   // Inserting Loaders
@@ -539,7 +539,7 @@ async function fetchMoreProducts() {
     productss = await store.fetchProducts();
   }
 
-  console.log("From Network", productss);
+  console.log('From Network', productss);
 
   if (!store.error) {
     networkDataRecieved = true;
@@ -550,9 +550,9 @@ async function fetchMoreProducts() {
       // Inserting Products into dom
       loadProducts(productss);
     } else {
-      var msg = document.querySelector(".in_s_msg");
+      var msg = document.querySelector('.in_s_msg');
       if (msg) {
-        document.querySelector(".in_s_msg").parentElement.removeChild(msg);
+        document.querySelector('.in_s_msg').parentElement.removeChild(msg);
       }
 
       var markup = `<p
@@ -567,14 +567,14 @@ async function fetchMoreProducts() {
                        class="in_s_msg"
                      >
                        <em
-                         >It seems like you've come to the end!</em
+                         >It seems like you've come to the end! But regardless God Gat You.</em
                        >
                      </p>`;
 
       endOfPage = true;
       document
         .querySelector(`.${store.parent}`)
-        .insertAdjacentHTML("afterend", markup);
+        .insertAdjacentHTML('afterend', markup);
     }
   } else {
     if (store.page === 1) {
@@ -586,24 +586,24 @@ async function fetchMoreProducts() {
     // Removing Loaders
     store.removeLoader();
 
-    errorSubMsg("Failed to load", 1000, "add", "#1b1b1b");
-    errorSubMsg("Failed to load", 5000, "remove", "#1b1b1b");
+    errorSubMsg('Failed to load', 1000, 'add', '#1b1b1b');
+    errorSubMsg('Failed to load', 5000, 'remove', '#1b1b1b');
   }
   store.removeLoader();
 }
 
 function renderCart() {
-  var cart = JSON.parse(localStorage.getItem("cart"));
-  var cartTag = document.querySelector("#cart-quantity");
-  var cartTrolley = document.querySelector("#cartOfProducts");
+  var cart = JSON.parse(localStorage.getItem('cart'));
+  var cartTag = document.querySelector('#cart-quantity');
+  var cartTrolley = document.querySelector('#cartOfProducts');
 
   if (cart === null) {
     cart = [];
-    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
   cartTag.textContent = cart.length;
-  cartTrolley.innerHTML = "";
+  cartTrolley.innerHTML = '';
 
   if (cart.length > 0) {
     cart.forEach(function (p, i) {
@@ -619,55 +619,55 @@ function renderCart() {
   }
 
   var markup = `<p id="emptyy" class="empty">Your Cart Is Empty</p>`;
-  cartTrolley.insertAdjacentHTML("afterbegin", markup);
+  cartTrolley.insertAdjacentHTML('afterbegin', markup);
 }
 
 // Handle Cart Auth
 function cartAuth() {
-  var checkout = document.querySelector("#checkoutt");
-  var resu = JSON.parse(localStorage.getItem("resu"));
+  var checkout = document.querySelector('#checkoutt');
+  var resu = JSON.parse(localStorage.getItem('resu'));
 
-  if (resu === null || resu === "" || resu === " ") {
+  if (resu === null || resu === '' || resu === ' ') {
     var data = {
-      first: "GODGATYOUUSER",
-      second: "",
+      first: 'GODGATYOUUSER',
+      second: '',
     };
-    localStorage.setItem("resu", JSON.stringify(data));
+    localStorage.setItem('resu', JSON.stringify(data));
 
-    checkout.classList.add("disabled");
+    checkout.classList.add('disabled');
   }
 
-  resu = JSON.parse(localStorage.getItem("resu"));
+  resu = JSON.parse(localStorage.getItem('resu'));
 
-  checkout.addEventListener("click", function (e) {
-    if (resu.second === null || resu.second === "" || resu.second === " ") {
+  checkout.addEventListener('click', function (e) {
+    if (resu.second === null || resu.second === '' || resu.second === ' ') {
       e.preventDefault();
-      checkout.classList.add("disabled");
+      checkout.classList.add('disabled');
       welcome(300);
 
-      document.querySelector("#body").addEventListener("click", function (e) {
-        if (e.target.matches(".btn-close, .btn-close *")) {
-          document.querySelector(".welcome").classList.add("closed");
+      document.querySelector('#body').addEventListener('click', function (e) {
+        if (e.target.matches('.btn-close, .btn-close *')) {
+          document.querySelector('.welcome').classList.add('closed');
 
           var data = {
-            first: "GODGATYOUUSER",
-            second: "",
+            first: 'GODGATYOUUSER',
+            second: '',
           };
-          localStorage.setItem("resu", JSON.stringify(data));
+          localStorage.setItem('resu', JSON.stringify(data));
 
-          errorSubMsg("Enter your name to checkout!", 300, "add", "#1b1b1b");
+          errorSubMsg('Enter your name to checkout!', 300, 'add', '#1b1b1b');
           errorSubMsg(
-            "Enter your name to checkout!",
+            'Enter your name to checkout!',
             5000,
-            "remove",
-            "#1b1b1b"
+            'remove',
+            '#1b1b1b'
           );
         }
 
-        if (e.target.matches("form .enable")) {
+        if (e.target.matches('form .enable')) {
           setTimeout(() => {
-            resu = JSON.parse(localStorage.getItem("resu"));
-            checkout.classList.remove("disabled");
+            resu = JSON.parse(localStorage.getItem('resu'));
+            checkout.classList.remove('disabled');
           }, 300);
         }
       });
@@ -686,24 +686,24 @@ async function describeProduct(id) {
   store.body = product.product_desc;
   store.price = product.price;
   store.describeProduct();
-  document.querySelector(".appreciation").style.display = "block";
+  document.querySelector('.appreciation').style.display = 'block';
 }
 
-document.querySelector("#closeModal").addEventListener("click", (e) => {
-  document.querySelector(".appreciation__content").innerHTML = "";
-  document.querySelector(".appreciation").style.display = "none";
+document.querySelector('#closeModal').addEventListener('click', (e) => {
+  document.querySelector('.appreciation__content').innerHTML = '';
+  document.querySelector('.appreciation').style.display = 'none';
 });
 
 // Event Handlers
 function events() {
-  window.addEventListener("online", function () {
+  window.addEventListener('online', function () {
     if (currentData === false && networkDataRecieved === false) {
-      store.parent = "tags";
+      store.parent = 'tags';
       store.clearCards();
       var markup = `<button class="tag" data-category="all">All</button>`;
 
-      document.querySelector(`.tags`).insertAdjacentHTML("beforeend", markup);
-      store.parent = "wallpapers__wallpapers--long";
+      document.querySelector(`.tags`).insertAdjacentHTML('beforeend', markup);
+      store.parent = 'wallpapers__wallpapers--long';
       store.clearCards();
       loadTags();
 
@@ -717,19 +717,19 @@ function events() {
     }
   });
 
-  document.querySelector("body").addEventListener("click", function (event) {
-    if (event.target.matches(".tag, .tag *")) {
-      var category = event.target.getAttribute("data-category");
+  document.querySelector('body').addEventListener('click', function (event) {
+    if (event.target.matches('.tag, .tag *')) {
+      var category = event.target.getAttribute('data-category');
 
-      var msg = document.querySelector(".in_s_msg");
+      var msg = document.querySelector('.in_s_msg');
       if (msg) {
-        document.querySelector(".in_s_msg").parentElement.removeChild(msg);
+        document.querySelector('.in_s_msg').parentElement.removeChild(msg);
       }
 
-      store.parent = "wallpapers__wallpapers--long";
+      store.parent = 'wallpapers__wallpapers--long';
       store.clearCards();
 
-      if (category === "all") {
+      if (category === 'all') {
         store.page = 1;
         endOfPage = false;
         loadAllProducts();
@@ -741,14 +741,14 @@ function events() {
       }
     }
 
-    if (event.target.matches(".addToCart, .addToCart *")) {
+    if (event.target.matches('.addToCart, .addToCart *')) {
       event.preventDefault();
       async function int() {
-        var cart = JSON.parse(localStorage.getItem("cart"));
+        var cart = JSON.parse(localStorage.getItem('cart'));
         var id = event.target
-          .closest(".singleProd")
-          .getAttribute("data-product");
-        var trolley = document.querySelector("#cartOfProducts");
+          .closest('.singleProd')
+          .getAttribute('data-product');
+        var trolley = document.querySelector('#cartOfProducts');
         var index;
 
         cart.forEach(function (e, i) {
@@ -759,56 +759,56 @@ function events() {
         });
 
         if (index !== undefined) {
-          var resu = JSON.parse(localStorage.getItem("resu"));
+          var resu = JSON.parse(localStorage.getItem('resu'));
 
-          if (resu === null || resu === "" || resu === " ") {
+          if (resu === null || resu === '' || resu === ' ') {
             var data = {
-              first: "GODGATYOUUSER",
-              second: "",
+              first: 'GODGATYOUUSER',
+              second: '',
             };
-            localStorage.setItem("resu", JSON.stringify(data));
+            localStorage.setItem('resu', JSON.stringify(data));
           }
 
-          resu = JSON.parse(localStorage.getItem("resu"));
+          resu = JSON.parse(localStorage.getItem('resu'));
 
           if (
             resu.second !== null ||
-            resu.second !== "" ||
-            resu.second !== " "
+            resu.second !== '' ||
+            resu.second !== ' '
           ) {
-            await fetch("/api/v1/purchases/read-user.php?id=" + resu.second)
+            await fetch('/api/v1/purchases/read-user.php?id=' + resu.second)
               .then(function (res) {
                 return res.json();
               })
               .then(function (data) {
                 if (data.purchase === false) {
                   cart[index].quantity = cart[index].quantity + 1;
-                  localStorage.setItem("cart", JSON.stringify(cart));
+                  localStorage.setItem('cart', JSON.stringify(cart));
                   renderCart();
                   return;
                 } else {
                   errorSubMsg(
-                    "Complete your previous purchase first!",
+                    'Complete your previous purchase first!',
                     1000,
-                    "add",
-                    "#1b1b1b"
+                    'add',
+                    '#1b1b1b'
                   );
                   errorSubMsg(
-                    "Complete your previous purchase first!",
+                    'Complete your previous purchase first!',
                     4000,
-                    "remove",
-                    "#1b1b1b"
+                    'remove',
+                    '#1b1b1b'
                   );
 
                   setTimeout(function () {
                     window.location =
-                      "/store/pay/?pay=" + data.data.purchase_id;
+                      '/store/pay/?pay=' + data.data.purchase_id;
                   }, 3500);
                 }
               });
           } else {
             cart[index].quantity = cart[index].quantity + 1;
-            localStorage.setItem("cart", JSON.stringify(cart));
+            localStorage.setItem('cart', JSON.stringify(cart));
             renderCart();
             return;
           }
@@ -822,13 +822,13 @@ function events() {
       int();
     }
 
-    if (event.target.matches(".cart-btn, .cart-btn *")) {
+    if (event.target.matches('.cart-btn, .cart-btn *')) {
       renderCart();
     }
 
-    if (event.target.matches("#delCartItem, #delCartItem *")) {
-      var id = event.target.closest(".cartItem").getAttribute("id");
-      var cart = JSON.parse(localStorage.getItem("cart"));
+    if (event.target.matches('#delCartItem, #delCartItem *')) {
+      var id = event.target.closest('.cartItem').getAttribute('id');
+      var cart = JSON.parse(localStorage.getItem('cart'));
       var index;
 
       cart.forEach(function (e, i) {
@@ -840,15 +840,15 @@ function events() {
 
       cart.splice(index, 1);
 
-      localStorage.setItem("cart", JSON.stringify(cart));
+      localStorage.setItem('cart', JSON.stringify(cart));
       renderCart();
       // var el = document.querySelector(`#${id}`);
       // document.querySelector(`#${id}`).parentElement.removeChild(el);
     }
 
-    if (event.target.matches("#incQnt, #incQnt *")) {
-      var id = event.target.closest(".cartItem").getAttribute("id");
-      var cart = JSON.parse(localStorage.getItem("cart"));
+    if (event.target.matches('#incQnt, #incQnt *')) {
+      var id = event.target.closest('.cartItem').getAttribute('id');
+      var cart = JSON.parse(localStorage.getItem('cart'));
       var index;
 
       cart.forEach(function (e, i) {
@@ -860,13 +860,13 @@ function events() {
 
       cart[index].quantity = cart[index].quantity + 1;
 
-      localStorage.setItem("cart", JSON.stringify(cart));
+      localStorage.setItem('cart', JSON.stringify(cart));
       renderCart();
     }
 
-    if (event.target.matches("#decQnt, #decQnt *")) {
-      var id = event.target.closest(".cartItem").getAttribute("id");
-      var cart = JSON.parse(localStorage.getItem("cart"));
+    if (event.target.matches('#decQnt, #decQnt *')) {
+      var id = event.target.closest('.cartItem').getAttribute('id');
+      var cart = JSON.parse(localStorage.getItem('cart'));
       var index;
 
       cart.forEach(function (e, i) {
@@ -880,27 +880,27 @@ function events() {
         cart[index].quantity = cart[index].quantity - 1;
       }
 
-      localStorage.setItem("cart", JSON.stringify(cart));
+      localStorage.setItem('cart', JSON.stringify(cart));
       renderCart();
     }
 
-    if (event.target.matches(".hero, .hero *")) {
-      var id = event.target.closest(".product").dataset.product;
+    if (event.target.matches('.hero, .hero *')) {
+      var id = event.target.closest('.product').dataset.product;
       describeProduct(id);
     }
 
     if (
-      event.target.matches("#closeModal") ||
-      event.target.matches("#Thanks")
+      event.target.matches('#closeModal') ||
+      event.target.matches('#Thanks')
     ) {
-      document.querySelector(".appreciation__content").innerHTML = "";
-      document.querySelector(".appreciation").style.display = "none";
+      document.querySelector('.appreciation__content').innerHTML = '';
+      document.querySelector('.appreciation').style.display = 'none';
     }
   });
 
-  window.addEventListener("scroll", function (e) {
+  window.addEventListener('scroll', function (e) {
     var scrollTop = document.documentElement.scrollTop;
-    var scrollHeight = document.querySelector(".main-body").clientHeight;
+    var scrollHeight = document.querySelector('.main-body').clientHeight;
     var clientHeight = document.documentElement.clientHeight;
     // console.log(store.page, store.results, endOfPage, onCategory, store.status);
 
@@ -914,14 +914,14 @@ function events() {
 
 // Progressive Enhancement
 function offlineHandler() {
-  if ("indexedDB" in window) {
-    readAllData("store").then(function (data) {
+  if ('indexedDB' in window) {
+    readAllData('store').then(function (data) {
       if (!networkDataRecieved && !currentData) {
         if (data.length > 0) {
           var orderedData = [];
 
-          console.log("From cache: ", data);
-          store.parent = "wallpapers__wallpapers--long";
+          console.log('From cache: ', data);
+          store.parent = 'wallpapers__wallpapers--long';
           store.clearCards();
           store.removeLoader();
           store.insertLoader();
@@ -955,8 +955,8 @@ function offlineHandler() {
           store.removeLoader();
 
           document
-            .querySelector(".wallpapers__wallpapers--long")
-            .insertAdjacentHTML("afterbegin", markup);
+            .querySelector('.wallpapers__wallpapers--long')
+            .insertAdjacentHTML('afterbegin', markup);
         }
       }
     });

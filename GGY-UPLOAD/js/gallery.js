@@ -43,24 +43,24 @@ class Gallery {
 
     document
       .querySelector(`.${this.parent}`)
-      .insertAdjacentHTML("beforeend", markup);
+      .insertAdjacentHTML('beforeend', markup);
   }
 
   loadPost() {
-    var dip = this.date.split("-");
+    var dip = this.date.split('-');
     var months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
     ];
 
     var newOM = +dip[1] - 1;
@@ -122,7 +122,7 @@ class Gallery {
     if (
       document
         .querySelector(`.${this.parent}`)
-        .insertAdjacentHTML("beforeend", markup)
+        .insertAdjacentHTML('beforeend', markup)
     ) {
       return true;
     } else {
@@ -131,20 +131,20 @@ class Gallery {
   }
 
   loadComments() {
-    var dip = this.comment_date.split("-");
+    var dip = this.comment_date.split('-');
     var months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
     ];
 
     var newOM = +dip[1] - 1;
@@ -161,7 +161,7 @@ class Gallery {
             </li>
         `;
 
-    document.querySelector("#gall-cmt").insertAdjacentHTML("beforeend", markup);
+    document.querySelector('#gall-cmt').insertAdjacentHTML('beforeend', markup);
   }
 
   insertLoader() {
@@ -177,7 +177,7 @@ class Gallery {
 
     document
       .querySelector(`.${this.parent}`)
-      .insertAdjacentHTML("afterend", markup);
+      .insertAdjacentHTML('afterend', markup);
   }
 
   insertLoader2() {
@@ -193,7 +193,7 @@ class Gallery {
 
     document
       .querySelector(`.${this.parent}`)
-      .insertAdjacentHTML("beforeend", markup);
+      .insertAdjacentHTML('beforeend', markup);
   }
 
   insertLoader3(pp) {
@@ -207,13 +207,13 @@ class Gallery {
             </div>
         `;
 
-    document.querySelector(`.${pp}`).insertAdjacentHTML("beforeend", markup);
+    document.querySelector(`.${pp}`).insertAdjacentHTML('beforeend', markup);
   }
 
   removeLoader() {
-    var loader = document.querySelector(".loader");
+    var loader = document.querySelector('.loader');
     if (loader)
-      document.querySelector(".loader").parentElement.removeChild(loader);
+      document.querySelector('.loader').parentElement.removeChild(loader);
   }
 
   clearCards() {
@@ -235,43 +235,43 @@ class Gallery {
 
 var map;
 
-var galleryContainer = document.querySelector(".wallpapers__wallpapers");
+var galleryContainer = document.querySelector('.wallpapers__wallpapers');
 var shData;
 
 function loadCon(imageId, resu) {
-  document.querySelector(".appreciation__content").innerHTML = "";
+  document.querySelector('.appreciation__content').innerHTML = '';
 
   // Url
-  var url = "/api/v1/gallery/read-single.php";
+  var url = '/api/v1/gallery/read-single.php';
   var urll = new URL(window.location.href);
   var id = new URLSearchParams(urll.search);
-  var imageId = id.get("gallery");
+  var imageId = id.get('gallery');
 
   if (map) {
     var urll = new URL(window.location.href);
     var id = new URLSearchParams(urll.search);
-    var imageId = id.get("gallery");
+    var imageId = id.get('gallery');
 
     var page = map.indexOf(imageId);
 
     if (page === 0) {
-      document.querySelector("#prev-btn").style.opacity = 0;
-      document.querySelector("#prev-btn").style.pointerEvents = "none";
-      document.querySelector("#prev-btn").style.visibility = "hidden";
+      document.querySelector('#prev-btn').style.opacity = 0;
+      document.querySelector('#prev-btn').style.pointerEvents = 'none';
+      document.querySelector('#prev-btn').style.visibility = 'hidden';
     } else {
-      document.querySelector("#prev-btn").style.opacity = 1;
-      document.querySelector("#prev-btn").style.pointerEvents = "all";
-      document.querySelector("#prev-btn").style.visibility = "visible";
+      document.querySelector('#prev-btn').style.opacity = 1;
+      document.querySelector('#prev-btn').style.pointerEvents = 'all';
+      document.querySelector('#prev-btn').style.visibility = 'visible';
     }
 
     if (page === map.length - 1) {
-      document.querySelector("#next-btn").style.opacity = 0;
-      document.querySelector("#next-btn").style.pointerEvents = "none";
-      document.querySelector("#next-btn").style.visibility = "hidden";
+      document.querySelector('#next-btn').style.opacity = 0;
+      document.querySelector('#next-btn').style.pointerEvents = 'none';
+      document.querySelector('#next-btn').style.visibility = 'hidden';
     } else {
-      document.querySelector("#next-btn").style.opacity = 1;
-      document.querySelector("#next-btn").style.pointerEvents = "all";
-      document.querySelector("#next-btn").style.visibility = "visible";
+      document.querySelector('#next-btn').style.opacity = 1;
+      document.querySelector('#next-btn').style.pointerEvents = 'all';
+      document.querySelector('#next-btn').style.visibility = 'visible';
     }
   }
 
@@ -286,20 +286,20 @@ function loadCon(imageId, resu) {
     gallery: imageId,
   };
 
-  if (resu === null || resu === "" || resu === " ") {
+  if (resu === null || resu === '' || resu === ' ') {
     pData.id = null;
   } else {
     pData.id = resu.second;
   }
 
-  var gallery = new Gallery("appreciation__content");
+  var gallery = new Gallery('appreciation__content');
   gallery.insertLoader2();
 
   fetch(url, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
     },
     body: JSON.stringify(pData),
   })
@@ -322,9 +322,9 @@ function loadCon(imageId, resu) {
       gallery.loadPost();
 
       if (data.data.liked) {
-        document.querySelector(".likeIcon").classList.remove("far");
-        document.querySelector(".likeIcon").classList.add("fas");
-        document.querySelector(".likeIcon").classList.add("liked");
+        document.querySelector('.likeIcon').classList.remove('far');
+        document.querySelector('.likeIcon').classList.add('fas');
+        document.querySelector('.likeIcon').classList.add('liked');
       }
 
       if (data.data.comments.length > 0) {
@@ -363,14 +363,14 @@ function loadCon(imageId, resu) {
                      </p>
                   `;
         document
-          .querySelector("#gall-cmt")
-          .insertAdjacentHTML("beforeend", markup);
+          .querySelector('#gall-cmt')
+          .insertAdjacentHTML('beforeend', markup);
       }
 
-      var shbtn = document.querySelector("#shbtn");
+      var shbtn = document.querySelector('#shbtn');
 
       if (shbtn) {
-        shbtn.addEventListener("click", function (ev) {
+        shbtn.addEventListener('click', function (ev) {
           if (shData) {
             var pgTitle = `${shData.name} || God Gat You Gallery`;
             var pgUrl = window.document.location.href;
@@ -380,10 +380,10 @@ function loadCon(imageId, resu) {
         });
       }
 
-      var comment_form = document.querySelector("#post_comment");
-      var comment_text = document.querySelector("#comment_cmt");
+      var comment_form = document.querySelector('#post_comment');
+      var comment_text = document.querySelector('#comment_cmt');
 
-      comment_form.addEventListener("submit", function (event) {
+      comment_form.addEventListener('submit', function (event) {
         event.preventDefault();
 
         function sendComment(post, resu, resuId, comments_text) {
@@ -391,19 +391,19 @@ function loadCon(imageId, resu) {
             deferredPrompt.prompt();
 
             deferredPrompt.userChoice.then(function (choiceResult) {
-              if (choiceResult.outcome === "dismissed") {
-                console.log("User canclled installation!");
+              if (choiceResult.outcome === 'dismissed') {
+                console.log('User canclled installation!');
               } else {
-                console.log("App installed successfully!");
+                console.log('App installed successfully!');
               }
             });
           }
 
-          fetch("/api/v1/gallery/comment.php", {
-            method: "POST",
+          fetch('/api/v1/gallery/comment.php', {
+            method: 'POST',
             headers: {
-              "Content/Type": "application/json",
-              Accept: "application/json",
+              'Content/Type': 'application/json',
+              Accept: 'application/json',
             },
             body: JSON.stringify({
               post: post,
@@ -417,8 +417,8 @@ function loadCon(imageId, resu) {
                 return res.json();
               },
               function (err) {
-                errorSubMsg("Failed to comment!", 300, "add", "#1b1b1b");
-                errorSubMsg("Failed to comment!", 5000, "remove", "#1b1b1b");
+                errorSubMsg('Failed to comment!', 300, 'add', '#1b1b1b');
+                errorSubMsg('Failed to comment!', 5000, 'remove', '#1b1b1b');
               }
             )
             .then(function (data) {
@@ -458,8 +458,8 @@ function loadCon(imageId, resu) {
                      </p>
                   `;
                 document
-                  .querySelector("#gall-cmt")
-                  .insertAdjacentHTML("beforeend", markup);
+                  .querySelector('#gall-cmt')
+                  .insertAdjacentHTML('beforeend', markup);
               }
             });
         }
@@ -471,19 +471,19 @@ function loadCon(imageId, resu) {
             deferredPrompt.userChoice.then(function (choiceResult) {
               console.log(choiceResult.outcome);
 
-              if (choiceResult.outcome === "dismissed") {
-                console.log("User canclled installation!");
+              if (choiceResult.outcome === 'dismissed') {
+                console.log('User canclled installation!');
               } else {
-                console.log("App installed successfully!");
+                console.log('App installed successfully!');
               }
             });
           }
 
-          fetch("/api/v1/gallery/comment.php", {
-            method: "POST",
+          fetch('/api/v1/gallery/comment.php', {
+            method: 'POST',
             headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
             },
             body: JSON.stringify({
               id: new Date().toISOString(),
@@ -509,11 +509,11 @@ function loadCon(imageId, resu) {
                     orderedData.push(e);
                   });
 
-                document.querySelector("#gall-cmt").innerHTML = "";
-                document.querySelector("#cmt_num").innerHTML =
+                document.querySelector('#gall-cmt').innerHTML = '';
+                document.querySelector('#cmt_num').innerHTML =
                   data.comments.length;
 
-                var gallery = new Gallery("appreciation__content");
+                var gallery = new Gallery('appreciation__content');
 
                 orderedData.forEach((e) => {
                   gallery.comment_id = e.id;
@@ -540,13 +540,13 @@ function loadCon(imageId, resu) {
                      </p>
                   `;
                 document
-                  .querySelector("#gall-cmt")
-                  .insertAdjacentHTML("beforeend", markup);
+                  .querySelector('#gall-cmt')
+                  .insertAdjacentHTML('beforeend', markup);
               }
             })
             .catch(function (err) {
               console.log(err);
-              if ("serviceWorker" in navigator && "SyncManager" in window) {
+              if ('serviceWorker' in navigator && 'SyncManager' in window) {
                 navigator.serviceWorker.ready.then(function (sw) {
                   var comment = {
                     id: new Date().toISOString(),
@@ -555,22 +555,22 @@ function loadCon(imageId, resu) {
                     user: resuId,
                     comment: comments_text,
                   };
-                  writeData("sync-comments", comment)
+                  writeData('sync-comments', comment)
                     .then(function () {
-                      return sw.sync.register("sync-new-comment");
+                      return sw.sync.register('sync-new-comment');
                     })
                     .then(function () {
                       errorSubMsg(
-                        "Your comment was saved for syncing!",
+                        'Your comment was saved for syncing!',
                         1000,
-                        "add",
-                        "#1b1b1b"
+                        'add',
+                        '#1b1b1b'
                       );
                       errorSubMsg(
-                        "Your comment was saved for syncing!",
+                        'Your comment was saved for syncing!',
                         5000,
-                        "remove",
-                        "#1b1b1b"
+                        'remove',
+                        '#1b1b1b'
                       );
                     })
                     .catch(function (err) {
@@ -583,67 +583,67 @@ function loadCon(imageId, resu) {
             });
         }
 
-        if (comment_text.value.trim() === "") {
-          errorSubMsg("Please add a comment!", 1000, "add", "#1b1b1b");
-          errorSubMsg("Please add a comment!", 5000, "remove", "#1b1b1b");
-          document.getElementById("comment_cmt").focus();
+        if (comment_text.value.trim() === '') {
+          errorSubMsg('Please add a comment!', 1000, 'add', '#1b1b1b');
+          errorSubMsg('Please add a comment!', 5000, 'remove', '#1b1b1b');
+          document.getElementById('comment_cmt').focus();
           return;
         }
 
         // Get post id and resu
         var postId = document
-          .querySelector("#Thanks")
-          .getAttribute("data-gallery");
-        var resu = JSON.parse(localStorage.getItem("resu"));
+          .querySelector('#Thanks')
+          .getAttribute('data-gallery');
+        var resu = JSON.parse(localStorage.getItem('resu'));
 
         if (
           resu.second.trim() === null ||
-          resu.second.trim() === "" ||
-          resu.second.trim() === " "
+          resu.second.trim() === '' ||
+          resu.second.trim() === ' '
         ) {
           welcome(300);
 
           document
-            .querySelector("#body")
-            .addEventListener("click", function (e) {
-              if (e.target.matches(".btn-close, .btn-close *")) {
-                document.querySelector(".welcome").classList.add("closed");
+            .querySelector('#body')
+            .addEventListener('click', function (e) {
+              if (e.target.matches('.btn-close, .btn-close *')) {
+                document.querySelector('.welcome').classList.add('closed');
 
                 var data = {
-                  first: "GODGATYOUUSER",
-                  second: "",
+                  first: 'GODGATYOUUSER',
+                  second: '',
                 };
-                localStorage.setItem("resu", JSON.stringify(data));
+                localStorage.setItem('resu', JSON.stringify(data));
 
                 errorSubMsg(
-                  "We need your name for you to comment!",
+                  'We need your name for you to comment!',
                   300,
-                  "add",
-                  "#1b1b1b"
+                  'add',
+                  '#1b1b1b'
                 );
                 errorSubMsg(
-                  "We need your name for you to comment!",
+                  'We need your name for you to comment!',
                   5000,
-                  "remove",
-                  "#1b1b1b"
+                  'remove',
+                  '#1b1b1b'
                 );
 
                 return false;
               }
 
-              if (e.target.matches("form .enable#hey")) {
+              if (e.target.matches('form .enable#hey')) {
                 setTimeout(() => {
                   errorSubMsg(
                     "oops! i guess you'll try that again!",
                     300,
-                    "add",
-                    "#1b1b1b"
+                    'add',
+                    '#1b1b1b'
                   );
                   errorSubMsg(
                     "oops! i guess you'll try that again!",
                     2000,
-                    "remove",
-                    "#1b1b1b"
+                    'remove',
+                    '#1b1b1b'
                   );
                 }, 300);
               }
@@ -651,12 +651,12 @@ function loadCon(imageId, resu) {
         } else {
           if (
             resu.second.trim() !== null ||
-            resu.second.trim() !== "" ||
-            resu.second.trim() !== " " ||
+            resu.second.trim() !== '' ||
+            resu.second.trim() !== ' ' ||
             resu.first.trim() !== null ||
-            resu.first.trim() !== "" ||
-            resu.first.trim() !== " " ||
-            resu.first.trim() !== "GODGATYOUUSER"
+            resu.first.trim() !== '' ||
+            resu.first.trim() !== ' ' ||
+            resu.first.trim() !== 'GODGATYOUUSER'
           ) {
             comment(postId, resu.first, resu.second, comment_text.value);
             comment_form.reset();
@@ -665,65 +665,65 @@ function loadCon(imageId, resu) {
       });
 
       document
-        .querySelector("#comment_cmt")
-        .addEventListener("keyup", function (ev) {
+        .querySelector('#comment_cmt')
+        .addEventListener('keyup', function (ev) {
           this.value = this.value.trimStart();
 
           if (this.value.length >= 3) {
-            document.querySelector("#post-cmt-btn").classList.add("enable");
+            document.querySelector('#post-cmt-btn').classList.add('enable');
           } else {
-            document.querySelector("#post-cmt-btn").classList.remove("enable");
+            document.querySelector('#post-cmt-btn').classList.remove('enable');
           }
         });
     })
     .catch(function (err) {
       gallery.removeLoader();
-      errorSubMsg("Failed to load", 2000, "add", "#1b1b1b");
-      errorSubMsg("Failed to load", 7000, "remove", "#1b1b1b");
+      errorSubMsg('Failed to load', 2000, 'add', '#1b1b1b');
+      errorSubMsg('Failed to load', 7000, 'remove', '#1b1b1b');
     });
 
-  document.querySelector(".appreciation").style.display = "block";
-  document.querySelector(".appreciation").setAttribute("data-gallery", imageId);
+  document.querySelector('.appreciation').style.display = 'block';
+  document.querySelector('.appreciation').setAttribute('data-gallery', imageId);
 }
 
-galleryContainer.addEventListener("click", function (e) {
-  if (e.target.matches(".star, .star *")) {
-    var imageId = e.target.closest(".star").getAttribute("data-gallery");
-    var resu = JSON.parse(localStorage.getItem("resu"));
+galleryContainer.addEventListener('click', function (e) {
+  if (e.target.matches('.star, .star *')) {
+    var imageId = e.target.closest('.star').getAttribute('data-gallery');
+    var resu = JSON.parse(localStorage.getItem('resu'));
 
     var refresh =
       window.location.protocol +
-      "//" +
+      '//' +
       window.location.host +
       window.location.pathname +
-      "?gallery=" +
+      '?gallery=' +
       imageId;
 
-    window.history.pushState({ path: refresh }, "", refresh);
+    window.history.pushState({ path: refresh }, '', refresh);
 
     loadCon(imageId, resu);
   }
 });
 
-window.addEventListener("load", function () {
-  var imageId = window.location.hash.replace("#", "");
-  var resu = JSON.parse(localStorage.getItem("resu"));
+window.addEventListener('load', function () {
+  var imageId = window.location.hash.replace('#', '');
+  var resu = JSON.parse(localStorage.getItem('resu'));
 
   var url = new URL(window.location.href);
   var id = new URLSearchParams(url.search);
-  var imageId = id.get("gallery");
+  var imageId = id.get('gallery');
 
   if (imageId) {
     loadCon(imageId, resu);
   }
 });
 
-document.querySelectorAll(".post__controls button").forEach(function (e) {
-  e.addEventListener("click", function (e) {
-    if (e.target.matches("#prev-btn, #prev-btn *")) {
+document.querySelectorAll('.post__controls button').forEach(function (e) {
+  e.addEventListener('click', function (e) {
+    if (e.target.matches('#prev-btn, #prev-btn *')) {
       var url = new URL(window.location.href);
       var id = new URLSearchParams(url.search);
-      var postId = id.get("gallery");
+      var postId = id.get('gallery');
 
       if (map) {
         if (postId) {
@@ -731,14 +731,14 @@ document.querySelectorAll(".post__controls button").forEach(function (e) {
 
           var refresh =
             window.location.protocol +
-            "//" +
+            '//' +
             window.location.host +
             window.location.pathname +
-            "?gallery=" +
+            '?gallery=' +
             pg;
-          window.history.pushState({ path: refresh }, "", refresh);
+          window.history.pushState({ path: refresh }, '', refresh);
 
-          var resu = JSON.parse(localStorage.getItem("resu"));
+          var resu = JSON.parse(localStorage.getItem('resu'));
 
           if (pg) {
             loadCon(pg, resu);
@@ -747,10 +747,10 @@ document.querySelectorAll(".post__controls button").forEach(function (e) {
       }
     }
 
-    if (e.target.matches("#next-btn, #next-btn *")) {
+    if (e.target.matches('#next-btn, #next-btn *')) {
       var url = new URL(window.location.href);
       var id = new URLSearchParams(url.search);
-      var postId = id.get("gallery");
+      var postId = id.get('gallery');
 
       if (map) {
         if (postId) {
@@ -758,14 +758,14 @@ document.querySelectorAll(".post__controls button").forEach(function (e) {
 
           var refresh =
             window.location.protocol +
-            "//" +
+            '//' +
             window.location.host +
             window.location.pathname +
-            "?gallery=" +
+            '?gallery=' +
             pg;
-          window.history.pushState({ path: refresh }, "", refresh);
+          window.history.pushState({ path: refresh }, '', refresh);
 
-          var resu = JSON.parse(localStorage.getItem("resu"));
+          var resu = JSON.parse(localStorage.getItem('resu'));
 
           if (pg) {
             loadCon(pg, resu);
@@ -777,20 +777,20 @@ document.querySelectorAll(".post__controls button").forEach(function (e) {
 });
 
 document
-  .querySelector(".appreciation, .appreciation *")
-  .addEventListener("click", function (e) {
-    if (e.target.matches(".like, .like *")) {
-      var resu = JSON.parse(localStorage.getItem("resu"));
+  .querySelector('.appreciation, .appreciation *')
+  .addEventListener('click', function (e) {
+    if (e.target.matches('.like, .like *')) {
+      var resu = JSON.parse(localStorage.getItem('resu'));
 
       function likePost() {
         // Get post id and resu
         var postId = e.target
-          .closest(".appreciation")
-          .getAttribute("data-gallery");
-        var resu = JSON.parse(localStorage.getItem("resu")).second;
+          .closest('.appreciation')
+          .getAttribute('data-gallery');
+        var resu = JSON.parse(localStorage.getItem('resu')).second;
 
         // Url
-        var url = "/api/v1/gallery/like.php";
+        var url = '/api/v1/gallery/like.php';
 
         // data
         var pData = {
@@ -798,27 +798,27 @@ document
           gallery: postId,
         };
 
-        if (!document.querySelector(".likeIcon").classList.contains("liked")) {
-          var val = +document.querySelector(".sts .like span").innerHTML;
+        if (!document.querySelector('.likeIcon').classList.contains('liked')) {
+          var val = +document.querySelector('.sts .like span').innerHTML;
           val = val + 1;
-          document.querySelector(".sts .like span").textContent = val;
-          document.querySelector(".likeIcon").classList.remove("far");
-          document.querySelector(".likeIcon").classList.add("fas");
-          document.querySelector(".likeIcon").classList.add("liked");
+          document.querySelector('.sts .like span').textContent = val;
+          document.querySelector('.likeIcon').classList.remove('far');
+          document.querySelector('.likeIcon').classList.add('fas');
+          document.querySelector('.likeIcon').classList.add('liked');
         } else {
-          var val = +document.querySelector(".sts .like span").innerHTML;
+          var val = +document.querySelector('.sts .like span').innerHTML;
           val = val - 1;
-          document.querySelector(".sts .like span").textContent = val;
-          document.querySelector(".likeIcon").classList.add("far");
-          document.querySelector(".likeIcon").classList.remove("fas");
-          document.querySelector(".likeIcon").classList.remove("liked");
+          document.querySelector('.sts .like span').textContent = val;
+          document.querySelector('.likeIcon').classList.add('far');
+          document.querySelector('.likeIcon').classList.remove('fas');
+          document.querySelector('.likeIcon').classList.remove('liked');
         }
 
         fetch(url, {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
           },
           body: JSON.stringify(pData),
         })
@@ -826,48 +826,48 @@ document
             return res.json();
           })
           .then(function (data) {
-            document.querySelector(".sts .like span").textContent = data.likes;
+            document.querySelector('.sts .like span').textContent = data.likes;
 
             if (!data.unliked) {
-              document.querySelector(".likeIcon").classList.remove("far");
-              document.querySelector(".likeIcon").classList.add("fas");
-              document.querySelector(".likeIcon").classList.add("liked");
+              document.querySelector('.likeIcon').classList.remove('far');
+              document.querySelector('.likeIcon').classList.add('fas');
+              document.querySelector('.likeIcon').classList.add('liked');
             } else {
-              document.querySelector(".likeIcon").classList.add("far");
-              document.querySelector(".likeIcon").classList.remove("fas");
-              document.querySelector(".likeIcon").classList.remove("liked");
+              document.querySelector('.likeIcon').classList.add('far');
+              document.querySelector('.likeIcon').classList.remove('fas');
+              document.querySelector('.likeIcon').classList.remove('liked');
             }
           })
           .catch(function (err) {
-            errorSubMsg("Failed to like", 1000, "add", "#1b1b1b");
-            errorSubMsg("Failed to like", 5000, "remove", "#1b1b1b");
+            errorSubMsg('Failed to like', 1000, 'add', '#1b1b1b');
+            errorSubMsg('Failed to like', 5000, 'remove', '#1b1b1b');
           });
       }
 
-      if (resu === null || resu === "" || resu === " ") {
+      if (resu === null || resu === '' || resu === ' ') {
         welcome(300);
 
-        document.querySelector("#body").addEventListener("click", function (e) {
-          if (e.target.matches(".btn-close, .btn-close *")) {
-            document.querySelector(".welcome").classList.add("closed");
+        document.querySelector('#body').addEventListener('click', function (e) {
+          if (e.target.matches('.btn-close, .btn-close *')) {
+            document.querySelector('.welcome').classList.add('closed');
 
             var data = {
-              first: "GODGATYOUUSER",
-              second: "",
+              first: 'GODGATYOUUSER',
+              second: '',
             };
-            localStorage.setItem("resu", JSON.stringify(data));
+            localStorage.setItem('resu', JSON.stringify(data));
 
             errorSubMsg(
-              "We need your name for you to like a post!",
+              'We need your name for you to like a post!',
               300,
-              "add",
-              "#1b1b1b"
+              'add',
+              '#1b1b1b'
             );
             errorSubMsg(
-              "We need your name for you to like a post!",
+              'We need your name for you to like a post!',
               5000,
-              "remove",
-              "#1b1b1b"
+              'remove',
+              '#1b1b1b'
             );
           }
         });
@@ -877,29 +877,29 @@ document
     }
   });
 
-document.querySelector("#closeModal").addEventListener("click", (e) => {
+document.querySelector('#closeModal').addEventListener('click', (e) => {
   var refresh =
     window.location.protocol +
-    "//" +
+    '//' +
     window.location.host +
     window.location.pathname;
-  window.history.pushState({ path: refresh }, "", refresh);
+  window.history.pushState({ path: refresh }, '', refresh);
 
-  document.querySelector(".appreciation__content").innerHTML = "";
-  document.querySelector(".appreciation").style.display = "none";
+  document.querySelector('.appreciation__content').innerHTML = '';
+  document.querySelector('.appreciation').style.display = 'none';
 });
 
-document.querySelector("#Thanks").addEventListener("click", (e) => {
-  if (e.target.id == "Thanks") {
+document.querySelector('#Thanks').addEventListener('click', (e) => {
+  if (e.target.id == 'Thanks') {
     var refresh =
       window.location.protocol +
-      "//" +
+      '//' +
       window.location.host +
       window.location.pathname;
-    window.history.pushState({ path: refresh }, "", refresh);
+    window.history.pushState({ path: refresh }, '', refresh);
 
-    document.querySelector(".appreciation__content").innerHTML = "";
-    document.querySelector(".appreciation").style.display = "none";
+    document.querySelector('.appreciation__content').innerHTML = '';
+    document.querySelector('.appreciation').style.display = 'none';
   }
 });
 
@@ -911,7 +911,7 @@ var amount = 15;
 var endOfPage = false;
 var url = `/api/v1/gallery/read-index.php?a=${amount}&p=${page}`;
 
-var gallery = new Gallery("wallpapers__wallpapers");
+var gallery = new Gallery('wallpapers__wallpapers');
 
 // Inserting Loaders
 gallery.insertLoader();
@@ -921,7 +921,7 @@ fetch(url)
     return res.json();
   })
   .then(function (data) {
-    console.log("From network: ", data);
+    console.log('From network: ', data);
     networkDataRecieved = true;
 
     if (data.map) {
@@ -948,10 +948,10 @@ fetch(url)
 
 function fetchMorePosts() {
   if (!endOfPage) {
-    document.querySelector(".err").innerHTML = "";
+    document.querySelector('.err').innerHTML = '';
 
     // Inserting Loaders
-    gallery.insertLoader3("err");
+    gallery.insertLoader3('err');
 
     // Fething wallapers
     fetch(url)
@@ -970,8 +970,8 @@ function fetchMorePosts() {
           // Removing Loaders
           gallery.removeLoader();
 
-          errorSubMsg("Failed to load", 1000, "add", "#1b1b1b");
-          errorSubMsg("Failed to load", 5000, "remove", "#1b1b1b");
+          errorSubMsg('Failed to load', 1000, 'add', '#1b1b1b');
+          errorSubMsg('Failed to load', 5000, 'remove', '#1b1b1b');
         }
       )
       .then(function (data) {
@@ -982,7 +982,7 @@ function fetchMorePosts() {
 
         // Removing Loaders
         gallery.removeLoader();
-        console.log("From network", data);
+        console.log('From network', data);
 
         if (data.status) {
           // Inserting gallery into dom
@@ -1007,23 +1007,23 @@ function fetchMorePosts() {
                        "
                      >
                        <em
-                         >It seems like you've come to the end!</em
+                         >It seems like you've come to the end! But regardless God Gat You.</em
                        >
                      </p>`;
 
           endOfPage = true;
 
-          document.querySelector(".err").innerHTML = "";
-          document.querySelector(".err").innerHTML = markup;
+          document.querySelector('.err').innerHTML = '';
+          document.querySelector('.err').innerHTML = markup;
         }
         currentData = true;
       });
   }
 }
 
-window.addEventListener("scroll", function (e) {
+window.addEventListener('scroll', function (e) {
   var scrollTop = document.documentElement.scrollTop;
-  var scrollHeight = document.querySelector(".main-body").clientHeight;
+  var scrollHeight = document.querySelector('.main-body').clientHeight;
   var clientHeight = document.documentElement.clientHeight;
 
   if (scrollTop + clientHeight >= scrollHeight - 170) {
@@ -1035,12 +1035,12 @@ window.addEventListener("scroll", function (e) {
   }
 });
 
-if ("indexedDB" in window) {
-  readAllData("gallery").then(function (data) {
+if ('indexedDB' in window) {
+  readAllData('gallery').then(function (data) {
     if (!networkDataRecieved && !currentData) {
       if (data.length > 0) {
-        console.log("From cache: ", data);
-        document.querySelector(".wallpapers__wallpapers").innerHTML = "";
+        console.log('From cache: ', data);
+        document.querySelector('.wallpapers__wallpapers').innerHTML = '';
 
         var orderedData = [];
 
@@ -1083,12 +1083,12 @@ if ("indexedDB" in window) {
         gallery.removeLoader();
 
         document
-          .querySelector(".wallpapers__wallpapers")
-          .insertAdjacentHTML("afterbegin", markup);
+          .querySelector('.wallpapers__wallpapers')
+          .insertAdjacentHTML('afterbegin', markup);
       }
 
       window.addEventListener(
-        "online",
+        'online',
         function (e) {
           if (currentData === false && networkDataRecieved === false) {
             page = 1;
@@ -1101,7 +1101,7 @@ if ("indexedDB" in window) {
               })
               .then(function (data) {
                 networkDataRecieved = true;
-                console.log("From network", data);
+                console.log('From network', data);
 
                 if (data.map) {
                   map = data.map;

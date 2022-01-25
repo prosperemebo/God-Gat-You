@@ -99,7 +99,7 @@ class Blog {
 
     document
       .querySelector(`.${this.parent}`)
-      .insertAdjacentHTML("beforeend", markup);
+      .insertAdjacentHTML('beforeend', markup);
   }
 
   loadPopularPosts() {
@@ -145,7 +145,7 @@ class Blog {
     `;
     document
       .querySelector(`.posts__popular__posts`)
-      .insertAdjacentHTML("beforeend", markup);
+      .insertAdjacentHTML('beforeend', markup);
   }
 
   loadResults() {
@@ -160,7 +160,7 @@ class Blog {
       </a>
     `;
 
-    document.querySelector(`.results`).insertAdjacentHTML("beforeend", markup);
+    document.querySelector(`.results`).insertAdjacentHTML('beforeend', markup);
   }
 
   insertLoader() {
@@ -176,7 +176,7 @@ class Blog {
 
     document
       .querySelector(`.${this.parent}`)
-      .insertAdjacentHTML("afterend", markup);
+      .insertAdjacentHTML('afterend', markup);
   }
 
   insertLoader2() {
@@ -193,7 +193,7 @@ class Blog {
 
     document
       .querySelector(`.${this.parent}`)
-      .insertAdjacentHTML("beforeend", markup);
+      .insertAdjacentHTML('beforeend', markup);
   }
 
   insertLoader3(pp) {
@@ -207,13 +207,13 @@ class Blog {
             </div>
         `;
 
-    document.querySelector(`.${pp}`).insertAdjacentHTML("beforeend", markup);
+    document.querySelector(`.${pp}`).insertAdjacentHTML('beforeend', markup);
   }
 
   removeLoader() {
-    var loader = document.querySelector(".loader");
+    var loader = document.querySelector('.loader');
     if (loader)
-      document.querySelector(".loader").parentElement.removeChild(loader);
+      document.querySelector('.loader').parentElement.removeChild(loader);
   }
 
   clearCards() {
@@ -233,7 +233,7 @@ var endOfPage = false;
 
 // Load Posts into DOM
 function loadPosts(posts) {
-  blog.parent = "posts__real__real";
+  blog.parent = 'posts__real__real';
   if (!posts) {
     var markup = `
       <p
@@ -252,15 +252,15 @@ function loadPosts(posts) {
       </p>
     `;
     document
-      .querySelector(".posts__real__real")
-      .insertAdjacentHTML("afterend", markup);
+      .querySelector('.posts__real__real')
+      .insertAdjacentHTML('afterend', markup);
     return false;
   }
 
-  var msg = document.querySelector(".error-mm");
+  var msg = document.querySelector('.error-mm');
 
   if (msg) {
-    document.querySelector(".error-mm").parentElement.removeChild(msg);
+    document.querySelector('.error-mm').parentElement.removeChild(msg);
   }
 
   posts.forEach(function (e) {
@@ -272,20 +272,20 @@ function loadPosts(posts) {
       e.body = `${e.body.slice(0, 300)}...`;
     }
 
-    var dip = e.date.split("-");
+    var dip = e.date.split('-');
     var months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
     ];
 
     var newOM = +dip[1] - 1;
@@ -306,20 +306,20 @@ function loadPosts(posts) {
     blog.title = e.post_name;
     blog.description = e.body;
 
-    blog.parent = "posts__real__real";
+    blog.parent = 'posts__real__real';
     blog.loadPosts();
   });
 }
 
 async function fetchMorePosts() {
-  var msg = document.querySelector(".error-mm");
+  var msg = document.querySelector('.error-mm');
 
   if (msg) {
-    document.querySelector(".error-mm").parentElement.removeChild(msg);
+    document.querySelector('.error-mm').parentElement.removeChild(msg);
   }
 
   // Inserting Loaders
-  blog.parent = "posts__real__real";
+  blog.parent = 'posts__real__real';
   blog.removeLoader();
   blog.insertLoader();
 
@@ -328,7 +328,7 @@ async function fetchMorePosts() {
 
   postss = await blog.fetchPosts();
 
-  console.log("From Network", postss);
+  console.log('From Network', postss);
 
   if (!blog.error) {
     networkDataRecieved = true;
@@ -339,9 +339,9 @@ async function fetchMorePosts() {
       // Inserting Posts into dom
       loadPosts(postss.data);
     } else {
-      var msg = document.querySelector(".error-mm");
+      var msg = document.querySelector('.error-mm');
       if (msg) {
-        document.querySelector(".error-mm").parentElement.removeChild(msg);
+        document.querySelector('.error-mm').parentElement.removeChild(msg);
       }
 
       var markup = `<p
@@ -356,14 +356,14 @@ async function fetchMorePosts() {
                        class="in_s_msg error-mm"
                      >
                        <em
-                         >It seems like you've come to the end!</em
+                         >It seems like you've come to the end! But regardless God Gat You.</em
                        >
                      </p>`;
 
       endOfPage = true;
       document
         .querySelector(`.${blog.parent}`)
-        .insertAdjacentHTML("afterend", markup);
+        .insertAdjacentHTML('afterend', markup);
     }
   } else {
     if (blog.page === 1) {
@@ -375,8 +375,8 @@ async function fetchMorePosts() {
     // Removing Loaders
     blog.removeLoader();
 
-    errorSubMsg("Failed to load", 1000, "add", "#1b1b1b");
-    errorSubMsg("Failed to load", 5000, "remove", "#1b1b1b");
+    errorSubMsg('Failed to load', 1000, 'add', '#1b1b1b');
+    errorSubMsg('Failed to load', 5000, 'remove', '#1b1b1b');
   }
   blog.removeLoader();
 }
@@ -386,22 +386,22 @@ async function loadAllPosts() {
   networkDataRecieved = false;
   currentData = false;
 
-  var msg = document.querySelector(".error-mm");
+  var msg = document.querySelector('.error-mm');
   if (msg) {
-    document.querySelector(".error-mm").parentElement.removeChild(msg);
+    document.querySelector('.error-mm').parentElement.removeChild(msg);
   }
 
-  var msg = document.querySelector(".off_msg");
+  var msg = document.querySelector('.off_msg');
   if (msg) {
-    document.querySelector(".off_msg").parentElement.removeChild(msg);
+    document.querySelector('.off_msg').parentElement.removeChild(msg);
   }
 
-  blog.parent = "posts__real__real";
+  blog.parent = 'posts__real__real';
   blog.removeLoader();
   blog.insertLoader();
 
   var posts = await blog.fetchPosts();
-  console.log("From network", posts);
+  console.log('From network', posts);
 
   if (!blog.error) {
     blog.clearCards();
@@ -435,16 +435,16 @@ async function loadAllPosts() {
 }
 
 async function loadPopularPosts() {
-  var msg = document.querySelector(".error-mm");
+  var msg = document.querySelector('.error-mm');
   if (msg) {
-    document.querySelector(".error-mm").parentElement.removeChild(msg);
+    document.querySelector('.error-mm').parentElement.removeChild(msg);
   }
 
   blog.removeLoader();
-  blog.insertLoader3("posts__popular__posts");
+  blog.insertLoader3('posts__popular__posts');
 
   var posts = await blog.fetchPopularPosts();
-  console.log("From network", posts);
+  console.log('From network', posts);
 
   posts.data.forEach(function (e) {
     if (e.post_name.length >= 25) {
@@ -481,31 +481,31 @@ async function loadPopularPosts() {
       </p>
     `;
     document
-      .querySelector(".posts__popular__posts")
-      .insertAdjacentHTML("afterend", markup);
+      .querySelector('.posts__popular__posts')
+      .insertAdjacentHTML('afterend', markup);
   }
   blog.removeLoader();
 }
 
 // Event Handlers
 function events() {
-  window.addEventListener("online", function () {
+  window.addEventListener('online', function () {
     if (currentData === false && networkDataRecieved === false) {
-      blog.parent = "posts__real__real";
+      blog.parent = 'posts__real__real';
       blog.clearCards();
       loadAllPosts();
 
-      document.querySelector(".posts__popular__posts").innerHTML = "";
+      document.querySelector('.posts__popular__posts').innerHTML = '';
       loadPopularPosts();
     }
   });
 
   async function renderRes(val) {
-    var results = document.querySelector(".results");
+    var results = document.querySelector('.results');
     var query = val;
 
-    if (query === "") {
-      results.innerHTML = "";
+    if (query === '') {
+      results.innerHTML = '';
 
       var markup = `
         <p
@@ -521,22 +521,22 @@ function events() {
           <em>Type to search...</em>
         </p>
       `;
-      results.insertAdjacentHTML("afterbegin", markup);
+      results.insertAdjacentHTML('afterbegin', markup);
     }
 
-    if (query.trim() === "") {
+    if (query.trim() === '') {
       return false;
     }
 
-    results.innerHTML = "";
-    blog.parent = "results";
+    results.innerHTML = '';
+    blog.parent = 'results';
     blog.removeLoader();
     blog.insertLoader2();
 
     var result = await blog.searchPosts(query);
 
     if (!result) {
-      results.innerHTML = "";
+      results.innerHTML = '';
       var markup = `
           <p
             style="
@@ -551,9 +551,9 @@ function events() {
             <em>Aw Snap!</em>
           </p>
         `;
-      results.insertAdjacentHTML("afterbegin", markup);
+      results.insertAdjacentHTML('afterbegin', markup);
     } else {
-      results.innerHTML = "";
+      results.innerHTML = '';
       if (result.status) {
         result.data.forEach(function (r) {
           blog.id = r.id;
@@ -565,7 +565,7 @@ function events() {
           blog.loadResults();
         });
       } else {
-        results.innerHTML = "";
+        results.innerHTML = '';
         var markup = `
           <p
             style="
@@ -580,18 +580,18 @@ function events() {
             <em>No results found!</em>
           </p>
         `;
-        results.insertAdjacentHTML("afterbegin", markup);
+        results.insertAdjacentHTML('afterbegin', markup);
       }
     }
   }
 
   document
-    .querySelector(".searchPosts input")
-    .addEventListener("focus", function (e) {
-      var results = document.querySelector(".results");
-      if (this.value.trim() === "") {
-        results.classList.add("active");
-        results.innerHTML = "";
+    .querySelector('.searchPosts input')
+    .addEventListener('focus', function (e) {
+      var results = document.querySelector('.results');
+      if (this.value.trim() === '') {
+        results.classList.add('active');
+        results.innerHTML = '';
 
         var markup = `
         <p
@@ -607,28 +607,28 @@ function events() {
           <em>Type to search...</em>
         </p>
       `;
-        results.insertAdjacentHTML("afterbegin", markup);
+        results.insertAdjacentHTML('afterbegin', markup);
       } else {
-        results.classList.add("active");
+        results.classList.add('active');
         renderRes(this.value);
       }
     });
 
   document
-    .querySelector(".searchPosts input")
-    .addEventListener("keyup", async function () {
+    .querySelector('.searchPosts input')
+    .addEventListener('keyup', async function () {
       renderRes(this.value);
     });
 
   document
-    .querySelector(".searchPosts input")
-    .addEventListener("blur", function (e) {
-      document.querySelector(".results").classList.remove("active");
+    .querySelector('.searchPosts input')
+    .addEventListener('blur', function (e) {
+      document.querySelector('.results').classList.remove('active');
     });
 
-  window.addEventListener("scroll", function (e) {
+  window.addEventListener('scroll', function (e) {
     var scrollTop = document.documentElement.scrollTop;
-    var scrollHeight = document.querySelector(".main-body").clientHeight;
+    var scrollHeight = document.querySelector('.main-body').clientHeight;
     var clientHeight = document.documentElement.clientHeight;
     // console.log(blog.page, blog.results, endOfPage, onCategory, blog.status);
 
@@ -642,14 +642,14 @@ function events() {
 
 // Progressive Enhancement
 function offlineHandler() {
-  if ("indexedDB" in window) {
-    readAllData("posts").then(function (data) {
+  if ('indexedDB' in window) {
+    readAllData('posts').then(function (data) {
       if (!networkDataRecieved && !currentData) {
         if (data.length > 0) {
           var orderedData = [];
 
-          console.log("From cache: ", data);
-          blog.parent = "posts__real__real";
+          console.log('From cache: ', data);
+          blog.parent = 'posts__real__real';
           blog.clearCards();
           blog.removeLoader();
           blog.insertLoader();
@@ -683,8 +683,8 @@ function offlineHandler() {
           blog.removeLoader();
 
           document
-            .querySelector(".posts__real__real")
-            .insertAdjacentHTML("afterbegin", markup);
+            .querySelector('.posts__real__real')
+            .insertAdjacentHTML('afterbegin', markup);
         }
       }
     });
