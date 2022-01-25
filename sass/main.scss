@@ -1,0 +1,144 @@
+@import "./abstract/mixins";
+@import "./abstract/variables";
+
+@import "./base/animations";
+@import "./base/base";
+@import "./base/typography";
+@import "./base/utilities";
+
+@import "./components/about";
+@import "./components/btn";
+@import "./components/confirmation_popup";
+@import "./components/recent";
+@import "./components/wallpaper_popup";
+@import "./components/welcome_popup";
+
+@import "./layouts/footer";
+@import "./layouts/grid";
+@import "./layouts/header";
+@import "./layouts/navigation";
+
+@import "./pages/about";
+@import "./pages/blog";
+@import "./pages/checkout";
+@import "./pages/dashboard";
+@import "./pages/home";
+@import "./pages/post";
+@import "./pages/search";
+@import "./pages/store";
+
+@import "./themes/dark";
+
+@media only screen and (max-height: 1000px) {
+  .ty {
+    display: none;
+  }
+}
+
+@media only screen and (max-height: 900px) {
+  .rt {
+    height: 4.5rem;
+  }
+}
+
+@media only screen and (max-height: 850px) {
+  .rt {
+    height: 3.5rem;
+  }
+}
+
+@media only screen and (max-height: 750px) {
+  .rt {
+    height: 2.5rem;
+  }
+}
+
+@media only screen and (max-height: 650px) {
+  .rt {
+    height: 1.5rem;
+  }
+}
+
+@media only screen and (max-height: 550px) {
+  .rt {
+    height: 0.5rem;
+  }
+}
+
+.post__controls {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+
+  @media only screen and (max-height: 500px) {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1400px) {
+    width: 98%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    top: 35%;
+  }
+
+  & button {
+    background: linear-gradient(
+      -45deg,
+      $color-secondary,
+      $color-grey-dark,
+      $color-grey-dark2,
+      $color-grey-dark2
+    ) !important;
+    border-radius: 50%;
+    font-size: 2rem !important;
+    padding: 1.5rem !important;
+
+    @media only screen and (max-height: 500px) {
+      font-size: 1.5rem !important;
+      padding: 1rem !important;
+    }
+
+    @media only screen and (max-width: 600px) {
+      font-size: 1.5rem !important;
+      padding: 1rem !important;
+      border: 1px solid $color-grey3 !important;
+    }
+  }
+}
+
+.loader {
+  width: 10rem;
+  margin: 0rem auto 0;
+  transform: scale(1);
+  animation-name: loader;
+  animation-timing-function: ease-out;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  backface-visibility: hidden;
+
+  & img {
+    width: 100%;
+  }
+}
+
+button,
+input,
+textarea {
+  &:focus {
+    outline: none;
+  }
+}
+
+.disabled {
+  opacity: 0.7 !important;
+  cursor: not-allowed !important;
+  // pointer-events: none !important;
+}

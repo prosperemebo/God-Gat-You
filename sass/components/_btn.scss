@@ -1,0 +1,43 @@
+.btn {
+  background: none;
+  border: none;
+  padding: 1rem 4rem;
+  color: $color-primary;
+  box-shadow: 0 5px 10px rgba($color-secondary, 0.2);
+  font-size: 2rem;
+  border-radius: 2px;
+  font-family: "LatoRegular", sans-serif;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    120deg,
+    $color-secondary 0%,
+    $color-secondary 50%,
+    $color-primary 50%
+  );
+  background-size: 230%;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  border: 1px solid $color-secondary;
+
+  &--center {
+    margin: 0 auto;
+  }
+
+  &:hover,
+  &:active {
+    box-shadow: 0 7px 14px rgba($color-secondary, 0.3);
+    background-position: 100%;
+    color: $color-secondary;
+    border: 1px solid $color-secondary;
+  }
+
+  &--sm {
+    font-size: 1.7rem;
+  }
+
+  &--store {
+    width: 100%;
+    margin-top: auto;
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,22 @@
+@font-face {
+  font-family: Promesh;
+  src: url("../assets/fonts/PromeshRegular.ttf");
+}
+@font-face {
+  font-family: LatoLight;
+  src: url("../assets/fonts/Lato-Light.ttf");
+}
+@font-face {
+  font-family: LatoRegular;
+  src: url("../assets/fonts/Lato-Regular.ttf");
+}
+
+.sub--heading {
+  font-size: 3rem;
+  font-weight: 100;
+  text-align: center;
+  text-transform: uppercase;
+  color: $color-text;
+  letter-spacing: 0.2rem;
+  padding: 1rem 1rem 0.5rem;
+}

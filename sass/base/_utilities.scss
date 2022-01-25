@@ -1,0 +1,84 @@
+.umt {
+  margin-top: 10rem;
+}
+
+.header-sm {
+  height: 55vh !important;
+  border-bottom: 1px solid $color-secondary;
+
+  @media only screen and (max-height: 500px) {
+    height: 70vh !important;
+  }
+}
+
+.tal {
+  text-align: left !important;
+  margin-left: 6rem;
+}
+
+.grybg {
+  background-color: $color-grey-dark2 !important;
+}
+
+.sizedbox {
+  height: 5rem;
+}
+
+.sizedbox-sm {
+  height: 3rem;
+}
+
+.sizedbox-w {
+  width: 3rem;
+}
+
+.editText {
+  overflow-x: scroll;
+  white-space: nowrap;
+
+  &::-webkit-scrollbar {
+    height: 4px !important;
+    width: 4px !important;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(223, 223, 223, 0.193) !important;
+    border-radius: 0px;
+  }
+}
+
+.oo {
+  @media only screen and (max-width: 650px) {
+    margin-left: 3rem !important;
+  }
+}
+
+.payMsg {
+  font-family: "LatoRegular", sans-serif;
+  font-size: 2rem;
+  font-weight: 100;
+  text-align: center;
+  margin: 2rem;
+}
+
+.payMsgCan {
+  font-family: "LatoRegular", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 100;
+  text-align: center;
+  margin: 2rem;
+  color: rgb(182, 17, 17);
+}
+
+.center-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.purchase__cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

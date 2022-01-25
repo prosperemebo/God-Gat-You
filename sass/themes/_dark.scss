@@ -1,0 +1,476 @@
+body.moon {
+  background: #141414;
+
+  & .post__controls button {
+    border: none !important;
+  }
+
+  & .policy {
+    &__list, &__other, &__p {
+      color: $color-grey;
+    }
+  }
+
+  & .tags {
+    background-color: rgba(255, 255, 255, 0.014);
+
+    & .tag {
+      background: $color-grey-dark;
+      color: $color-grey;
+    }
+  }
+
+  & .payMsg {
+    color: $color-grey;
+  }
+
+  & .confirmation__share {
+    color: $color-grey;
+
+    & a {
+      color: $color-grey;
+    }
+  }
+
+  & .confirmation {
+    background: rgba($color: $color-grey-dark2, $alpha: 1);
+
+    &__delete {
+      & p {
+        color: $color-grey2;
+      }
+    }
+  }
+
+  & .posts__posts aside .results {
+    background: $color-grey-dark;
+
+    & .result {
+      background: $color-grey-dark2;
+
+      &:nth-child(even) {
+        background: rgba($color-secondary, 0.2);
+      }
+
+      &:hover {
+        background: $color-grey-dark;
+      }
+
+      & h2 {
+        color: $color-grey;
+      }
+    }
+  }
+
+  & .btn {
+    color: $color-secondary;
+    background-image: linear-gradient(
+      120deg,
+      $color-primary 0%,
+      $color-primary 50%,
+      $color-secondary 50%
+    );
+
+    &:hover,
+    &:active {
+      color: $color-primary;
+      border: 1px solid $color-primary;
+    }
+  }
+
+  & .gall_desc {
+    background: $color-grey-dark2;
+    border: 1px solid #181818;
+
+    & ul {
+      background: $color-grey-dark2;
+
+      & h3 {
+        color: $color-grey;
+      }
+
+      & li {
+        background: $color-grey-dark;
+      }
+
+      & li:nth-child(even) {
+        background: rgba($color-grey-dark2, 0.8);
+      }
+    }
+
+    & .gall_form {
+      & input {
+        background: #111;
+        color: #f7f7f7;
+
+        &::placeholder {
+          color: $color-grey3;
+        }
+      }
+
+      & button {
+        color: $color-grey;
+        background: $color-grey-dark2;
+
+        &:hover {
+          background: $color-secondary;
+        }
+      }
+    }
+  }
+
+  & .posts__post {
+    color: $color-grey;
+    background-color: $color-grey-dark;
+  }
+
+  & .posts__posts aside .posts__popular .popular__post figure {
+    background-color: $color-grey-dark;
+  }
+
+  & .posts__posts aside .posts__popular .popular__post figure .title {
+    color: $color-grey;
+  }
+
+  & #re-prev-btn,
+  #re-next-btn {
+    color: #fff;
+  }
+
+  & .pph {
+    color: $color-primary;
+  }
+
+  & .searchPosts {
+    border: 1px solid $color-grey;
+  }
+
+  & main {
+    background: #141414;
+  }
+
+  & .sub--heading {
+    color: $color-primary;
+  }
+
+  .wallpapers__cta a {
+    color: $color-secondary;
+    background-image: linear-gradient(
+      120deg,
+      $color-primary 0%,
+      $color-primary 50%,
+      $color-secondary 50%
+    );
+
+    &:hover,
+    &:active {
+      color: $color-primary;
+      border: 1px solid $color-primary;
+    }
+  }
+
+  .wallpapers {
+    &__wallpapers {
+      & figure {
+        background: #111111;
+        color: $color-primary;
+
+        & button {
+          background-image: linear-gradient(
+            120deg,
+            $color-primary 0%,
+            $color-primary 50%,
+            $color-secondary 50%
+          );
+          color: $color-secondary;
+
+          &:hover {
+            border: 1px solid $color-primary;
+            color: $color-primary;
+          }
+        }
+      }
+    }
+  }
+
+  .b {
+    background-color: $color-grey-dark;
+  }
+
+  .about {
+    background-image: linear-gradient(
+        rgba($color-grey-dark, 0.96),
+        rgba($color-grey-dark, 0.96)
+      ),
+      url("../assets/images/aboutBG.jpg");
+    color: $color-primary;
+
+    &__cta a {
+      color: $color-primary;
+      border-bottom: 1px solid $color-primary;
+
+      &:hover {
+        background: $color-primary;
+        color: $color-secondary;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    &__overview {
+      &-- {
+        &:hover {
+          outline: 1.5rem solid $color-primary;
+        }
+      }
+    }
+  }
+
+  .thdark {
+    background: $color-grey-dark;
+  }
+
+  .blog__post {
+    &--stats {
+      background: $color-grey-dark2;
+      color: $color-grey !important;
+
+      &--lk span {
+        color: $color-grey !important;
+      }
+    }
+
+    &--content {
+      color: $color-primary;
+
+      & small {
+        color: $color-grey3 !important;
+      }
+    }
+
+    &--comments {
+      & form {
+        background: $color-grey-dark2;
+        color: $color-grey;
+
+        & input {
+          border-bottom-color: $color-grey;
+          color: $color-grey;
+        }
+
+        & button {
+          background-image: linear-gradient(
+            120deg,
+            $color-primary 0%,
+            $color-primary 50%,
+            $color-secondary 50%
+          );
+          border: 1px solid $color-primary;
+          color: $color-secondary;
+
+          &:hover,
+          &:active {
+            color: $color-primary;
+            border: 1px solid $color-primary;
+          }
+        }
+      }
+
+      & h1 {
+        color: $color-grey;
+      }
+
+      background: $color-secondary;
+
+      &--comment {
+        color: $color-grey;
+        & h2 {
+          font-size: 2rem;
+        }
+
+        & p {
+          font-size: 1.5rem;
+        }
+
+        & small {
+          font-size: 1.3rem;
+          padding: 0.5rem;
+        }
+
+        & .blog__post--stats--lk small span.liked {
+          color: $color-primary;
+        }
+
+        &:nth-child(odd) {
+          background: $color-grey-dark;
+          color: $color-grey;
+        }
+      }
+    }
+  }
+
+  .appreciation {
+    &__content {
+      background: $color-grey-dark;
+      color: $color-grey;
+
+      & .head span {
+        color: $color-grey;
+      }
+
+      & .download_form {
+        & input {
+          &:checked + label span::after {
+            background: $color-grey;
+          }
+        }
+
+        & label {
+          color: $color-grey;
+
+          & span {
+            border-color: $color-grey;
+          }
+        }
+
+        & .download_paper {
+          background: $color-grey;
+          color: $color-secondary;
+        }
+      }
+    }
+  }
+
+  .aboutUs {
+    &__stats {
+      background: $color-secondary;
+      color: $color-grey2;
+      border-top: 1px solid $color-grey;
+      border-bottom: 1px solid $color-grey;
+    }
+
+    &__about {
+      & article {
+        background: $color-grey-dark2;
+        color: $color-grey;
+      }
+    }
+
+    &__contact {
+      & .social {
+        color: $color-grey;
+
+        & div {
+          border-color: $color-grey;
+        }
+
+        & a {
+          color: $color-grey;
+        }
+      }
+
+      & .news {
+        color: $color-grey;
+
+        & input {
+          background: $color-grey-dark;
+          color: $color-primary;
+          border-color: $color-grey;
+        }
+      }
+    }
+  }
+
+  & .store {
+    & .cart {
+      & .head {
+        background: $color-secondary;
+      }
+
+      & .products figure {
+        background: $color-secondary;
+        color: $color-primary;
+
+        & figcaption .quantity button {
+          background: $color-grey2;
+          color: $color-secondary;
+        }
+
+        & span {
+          color: $color-grey;
+        }
+        &:nth-child(odd) {
+          background: $color-grey-dark2;
+        }
+      }
+    }
+  }
+
+  & .posts__cta {
+    & button {
+      background-image: linear-gradient(
+        120deg,
+        $color-primary 0%,
+        $color-primary 50%,
+        $color-secondary 50%
+      );
+      color: $color-secondary;
+
+      &:hover {
+        color: $color-primary;
+        border: 1px solid $color-primary;
+      }
+    }
+  }
+
+  & #delCartItem {
+    color: $color-primary;
+  }
+
+  & .checkoutt {
+    color: $color-grey;
+    font-family: "LatoRegular", sans-serif;
+
+    & figure {
+      background: $color-grey-dark2;
+
+      & h2 {
+        color: $color-grey;
+      }
+    }
+
+    & .info {
+      & .head {
+        background: $color-grey-dark;
+      }
+
+      & .details {
+        background: $color-grey-dark2;
+
+        & .body {
+          & .row {
+            & h2 {
+              letter-spacing: 0.1rem;
+              font-weight: 100;
+              color: $color-grey;
+            }
+          }
+        }
+      }
+
+      & .out {
+        background: $color-grey-dark2;
+
+        & .body {
+          & input {
+            border-color: $color-grey;
+            color: $color-grey;
+
+            &::placeholder {
+              color: $color-grey3;
+            }
+          }
+        }
+      }
+    }
+  }
+}

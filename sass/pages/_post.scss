@@ -1,0 +1,247 @@
+.blog__post {
+  &--header {
+    height: calc(100vh - 10.3vh);
+    width: 100%;
+    position: relative;
+    background: linear-gradient(
+      rgba($color-secondary, 0.5),
+      rgba($color-secondary, 0)
+    );
+    z-index: 1;
+    border-bottom: 1px $color-grey3 solid;
+
+    & .overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        rgba($color-secondary, 0.8),
+        rgba($color-secondary, 0)
+      );
+      transform: translate(-50%, -50%);
+    }
+
+    & span {
+      color: $color-primary;
+      position: absolute;
+      top: 17%;
+      left: 2%;
+      font-size: 3rem;
+      padding: 2rem;
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  & .err-back {
+    color: $color-grey3;
+    position: absolute;
+    top: 12%;
+    left: 2%;
+    font-size: 3rem;
+    padding: 2rem;
+  }
+
+  &--stats {
+    display: flex;
+    padding: 0 2rem;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    background: $color-grey;
+    border-bottom: 1px $color-grey3 solid;
+    color: $color-grey4;
+    font-size: 2rem;
+    font-family: "LatoRegular", sans-serif;
+    text-transform: capitalize;
+
+    @media only screen and (max-width: 460px) {
+      font-size: 1.8rem;
+      padding: 0rem 2rem;
+    }
+
+    @media only screen and (max-width: 393px) {
+      padding: 0rem 1rem;
+      font-size: 1.5rem;
+    }
+
+    &--el {
+      display: flex;
+      flex: 1.5;
+
+      @media only screen and (max-width: 650px) {
+        flex: 3;
+      }
+
+      @media only screen and (max-width: 550px) {
+        flex: 5;
+      }
+
+      @media only screen and (max-width: 350px) {
+        flex: 6;
+      }
+
+      & small {
+        display: flex;
+        align-items: center;
+        padding: 2rem;
+
+        @media only screen and (max-width: 500px) {
+          padding: 1rem;
+        }
+
+        & p {
+          padding: 1rem;
+        }
+      }
+    }
+
+    &--lk {
+      text-align: right;
+      flex: 1;
+
+      & small {
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        cursor: pointer;
+
+        @media only screen and (max-width: 350px) {
+          padding: 1rem;
+        }
+
+        & p {
+          padding: 1rem;
+        }
+
+        & i.liked {
+          font-size: 2.1rem;
+          padding-right: 0.1rem;
+          color: #ed4956;
+        }
+      }
+    }
+  }
+
+  &--content {
+    width: 90%;
+    margin: 5rem auto;
+    font-family: "LatoRegular", sans-serif;
+
+    & h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+    }
+
+    & p {
+      font-size: 1.7rem;
+    }
+
+    & small {
+      font-size: 1.5rem;
+      color: $color-grey4;
+      padding: 1rem;
+    }
+  }
+
+  &--comments {
+    & form {
+      padding: 0 5rem;
+      background: $color-grey;
+      padding: 2rem;
+      border-top: 1px solid $color-grey3;
+      border-bottom: 1px solid $color-grey3;
+
+      & input {
+        display: block;
+        border: none;
+        padding: 1rem 2rem 1rem 0.5rem;
+        margin: 2rem;
+        width: 30%;
+        background: none;
+        border-bottom: 1px solid $color-grey4;
+        font-size: 1.5rem;
+        transition: all 0.2s ease;
+
+        @media only screen and(max-width: 900px) {
+          width: 50%;
+        }
+
+        @media only screen and(max-width: 500px) {
+          width: 90%;
+        }
+
+        &:focus {
+          border-bottom: 1.5px solid $color-secondary;
+        }
+      }
+
+      & button {
+        text-align: center;
+        padding: 1rem 4rem;
+        color: $color-primary;
+        box-shadow: 0 5px 10px rgba($color-secondary, 0.2);
+        font-size: 1.5rem;
+        border-radius: 2px;
+        border: none;
+        font-family: "LatoRegular", sans-serif;
+        text-transform: uppercase;
+        background-image: linear-gradient(
+          120deg,
+          $color-secondary 0%,
+          $color-secondary 50%,
+          $color-primary 50%
+        );
+        background-size: 230%;
+        transition: all 0.5s ease;
+        border: 1px solid $color-secondary;
+        margin: 0rem 2rem;
+        cursor: pointer;
+
+        &:hover,
+        &:active {
+          background-position: 100%;
+          color: $color-secondary;
+          border: 1px solid $color-secondary;
+        }
+      }
+    }
+
+    & h1 {
+      font-size: 2.5rem;
+      margin: 2rem;
+      letter-spacing: 0.3rem;
+    }
+
+    &--comment {
+      padding: 3rem 2rem;
+      border-bottom: 1px solid $color-grey4;
+      font-family: "LatoRegular";
+
+      & h2 {
+        font-size: 2rem;
+        text-transform: capitalize;
+      }
+
+      & p {
+        font-size: 1.5rem;
+      }
+
+      & small {
+        font-size: 1.3rem;
+        padding: 0.5rem;
+      }
+
+      &:nth-child(odd) {
+        background: $color-grey;
+      }
+    }
+  }
+}

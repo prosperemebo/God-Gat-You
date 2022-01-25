@@ -1,0 +1,161 @@
+.welcome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000000000;
+  background: rgba($color-secondary, 0.8);
+  backdrop-filter: blur(5px);
+  color: $color-primary;
+  font-family: "LatoRegular", sans-serif;
+  transition: all 0.4s ease;
+
+  & .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $color-grey-dark2;
+    border-radius: 5px;
+    width: 50%;
+
+    @media only screen and (max-width: 800px) {
+      width: 70%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      width: 98%;
+    }
+
+    & .head {
+      background: $color-grey-dark;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+
+      & .btn-close {
+        font-size: 3rem;
+        cursor: pointer;
+      }
+
+      & .info {
+        position: relative;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        & i {
+          font-size: 3rem;
+          cursor: pointer;
+          padding: 1rem;
+        }
+
+        &:hover .msg {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        & .msg {
+          opacity: 0;
+          visibility: hidden;
+          position: absolute;
+          top: 24px;
+          left: 100%;
+          background: $color-grey2;
+          color: $color-grey-dark;
+          box-sizing: 0px 3px 6px rgba($color-secondary, 0.3);
+          border-radius: 5px;
+          padding: 1rem;
+          width: 22rem;
+          font-size: 1.3rem;
+          transition: all 0.3s ease;
+
+          @media only screen and (max-width: 800px) {
+            left: auto;
+            right: 0;
+          }
+        }
+      }
+    }
+
+    & .body {
+      padding: 2rem 5rem;
+      text-align: center;
+
+      & .logo {
+        width: 100%;
+
+        & img {
+          width: 15rem;
+          margin: auto;
+        }
+      }
+
+      & .msg {
+        margin: 1rem 0;
+
+        & h2 {
+          text-transform: capitalize;
+          font-size: 1.5rem;
+          line-height: 1.3rem;
+        }
+
+        & p {
+          font-size: 1.3rem;
+        }
+      }
+
+      & form {
+        width: 100%;
+        margin: 2rem 0;
+
+        & input {
+          background: rgba($color: $color-primary, $alpha: 0.05);
+          padding: 1rem;
+          text-align: center;
+          font-size: 1.8rem;
+          border-radius: 5px;
+          border: none;
+          border-bottom: 1px solid $color-primary;
+          color: $color-grey;
+          transition: all 0.3s ease;
+          display: block;
+          margin: 1rem auto;
+          width: 60%;
+
+          @media only screen and (max-width: 500px) {
+            width: 90%;
+          }
+
+          &:focus {
+            border-width: 2px;
+            background: rgba($color: $color-primary, $alpha: 0.1);
+          }
+        }
+
+        & button {
+          background: $color-grey2;
+          border: none;
+          padding: 1rem 3rem;
+          font-size: 1.5rem;
+          border-radius: 3px;
+          cursor: not-allowed;
+          pointer-events: none;
+          opacity: 0.7;
+
+          &.enable {
+            pointer-events: all !important;
+            cursor: pointer !important;
+            opacity: 1 !important;
+          }
+        }
+      }
+    }
+  }
+
+  &.closed {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

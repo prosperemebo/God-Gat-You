@@ -1,0 +1,405 @@
+.confirmation {
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  background: $color-grey2;
+  padding: 2rem;
+  border-radius: 4px;
+  box-shadow: 0px 5px 10px rgba($color-secondary, 0.3);
+  transition: top 0.3s ease, opacity 0.5s ease-in;
+  opacity: 0;
+
+  @media only screen and (max-width: 700px) {
+    width: 90%;
+  }
+
+  &.confirm {
+    top: 40%;
+    opacity: 1;
+  }
+
+  &__delete {
+    text-align: center;
+    font-family: "LatoRegular", sans-serif;
+    font-weight: 100;
+
+    & h1 {
+      color: rgb(221, 27, 27);
+      font-size: 3rem;
+      margin: 1rem 2rem 0;
+      line-height: 1;
+    }
+
+    & p {
+      font-size: 2rem;
+      color: $color-grey-dark2;
+      margin-bottom: 3rem;
+    }
+
+    &--delete {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      & button {
+        font-size: 2rem;
+        color: $color-grey;
+        padding: 1rem 2rem;
+        box-shadow: 0px 5px 10px rgba($color-secondary, 0.3);
+        border-radius: 4px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+
+        &#confirmDelPo {
+          background: rgb(221, 27, 27);
+          border: 2px solid $color-grey4;
+        }
+
+        &#cancelDelPo {
+          background: rgb(59, 221, 27);
+          border: 2px solid $color-grey4;
+        }
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+
+  &__edit--papers {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+
+    @media only screen and (max-width: 700px) {
+      overflow-x: scroll;
+      justify-content: start;
+
+      &::-webkit-scrollbar {
+        height: 4px !important;
+        width: 4px !important;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(223, 223, 223, 0.193) !important;
+        border-radius: 0px;
+      }
+    }
+
+    & figure {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      & img {
+        width: 15rem;
+        margin: 1rem;
+        border-radius: 4px;
+
+        &.altI .imgAlt {
+          display: block;
+        }
+      }
+
+      & .imgAlt {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        display: none;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        color: $color-grey;
+        padding: 1rem 1.2rem;
+        font-family: "LatoRegular", sans-serif;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(3px);
+        border-radius: 5px;
+        transition: all 0.1s ease;
+        cursor: pointer;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.8);
+        }
+      }
+
+      & figcaption {
+        & input {
+          display: none;
+        }
+
+        & small {
+          text-align: center;
+          color: #f7f7f7;
+          font-family: "LatoRegular", sans-serif;
+          font-weight: 100;
+          font-size: 1.8rem;
+          background: rgba(247, 247, 247, 0.2);
+          padding: 0.8rem 1.8rem;
+          box-shadow: 0px 2px 4px rgba(17, 17, 17, 0.2);
+          border-radius: 3px;
+          border: none;
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          &:active {
+            transform: scale(0.95);
+          }
+        }
+      }
+    }
+  }
+
+  & .cancelDelPoPa {
+    text-align: center;
+    color: #f7f7f7;
+    font-family: "LatoRegular", sans-serif;
+    font-weight: 100;
+    font-size: 1.8rem;
+    background: rgba(247, 247, 247, 0.2);
+    padding: 0.8rem 3rem;
+    box-shadow: 0px 2px 4px rgba(17, 17, 17, 0.2);
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 2rem 1rem 0;
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &__edit {
+    & .delBB {
+      font-size: 1.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 1px;
+      color: $color-grey;
+      background: rgba(186, 9, 9, 0.802);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        transform: translateY(-3px);
+      }
+    }
+
+    & .body {
+      & h1 {
+        text-align: center;
+        font-family: "LatoRegular", sans-serif;
+        font-weight: 100;
+        font-size: 3rem;
+        color: $color-grey;
+        text-transform: capitalize;
+        margin: 2rem 0rem 0rem;
+        padding: 0 2rem;
+        width: 100%;
+        border-bottom: 1px solid $color-grey3;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      & p {
+        text-align: center;
+        font-family: "LatoRegular", sans-serif;
+        font-weight: 100;
+        font-size: 1.8rem;
+        color: $color-grey;
+        text-transform: capitalize;
+        margin: 0.5rem 0rem 3rem;
+        padding: 0 2rem;
+        width: 100%;
+      }
+
+      & .cta {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 1rem 7rem;
+
+        @media only screen and (max-width: 700px) {
+          overflow-x: scroll;
+          justify-content: start;
+          margin-bottom: 1rem;
+          margin: 1rem 1rem;
+
+          &::-webkit-scrollbar {
+            height: 4px !important;
+            width: 4px !important;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: rgba(223, 223, 223, 0.193) !important;
+            border-radius: 0px;
+          }
+        }
+
+        & button {
+          font-size: 2rem;
+          margin: 0rem 2rem;
+          padding: 1rem 2rem;
+          border: none;
+          border-radius: 3px;
+          color: $color-grey;
+          background: $color-grey-dark2;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+          cursor: pointer;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+          &:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transform: translateY(-3px);
+          }
+
+          @media only screen and (max-width: 700px) {
+            margin-bottom: 2rem;
+          }
+        }
+      }
+    }
+  }
+
+  &__share {
+    font-family: "LatoRegular", sans-serif;
+
+    & .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & h2 {
+        font-size: 2rem;
+        font-weight: 100;
+      }
+
+      & i {
+        font-size: 2rem;
+        padding: 1rem;
+        cursor: pointer;
+      }
+    }
+
+    & .media {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 5rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid $color-grey4;
+
+      @media only screen and (max-width: 700px) {
+        padding: 0.5rem 1rem;
+        overflow-x: scroll;
+        justify-content: start;
+
+        &::-webkit-scrollbar {
+          height: 4px !important;
+          width: 4px !important;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: rgba(223, 223, 223, 0.193) !important;
+          border-radius: 0px;
+        }
+      }
+
+      & a {
+        margin: 2rem;
+        cursor: pointer;
+        color: $color-grey-dark;
+
+        & i {
+          height: 6rem;
+          width: 6rem;
+          color: $color-grey;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 3rem;
+          margin-bottom: 0.5rem;
+        }
+
+        & h2 {
+          text-align: center;
+          font-weight: 100;
+          font-size: 1.5rem;
+        }
+
+        &.fac {
+          & i {
+            background: #3b5998;
+          }
+        }
+
+        &.wat {
+          & i {
+            background: #00af9c;
+          }
+        }
+
+        &.twr {
+          & i {
+            background: #1da1f2;
+          }
+        }
+
+        &.mal {
+          & i {
+            background: #888888;
+          }
+        }
+      }
+    }
+
+    & .cta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & input {
+        font-size: 2rem;
+        padding: 1rem 0.5rem 0.5rem;
+        border: 1px solid $color-grey4;
+        border-radius: 4px;
+        flex: 1;
+      }
+
+      & button {
+        padding: 0.5rem 2.5rem;
+        cursor: pointer;
+        border: 1px solid $color-grey4;
+        margin-left: 3rem;
+        font-size: 1.8rem;
+        border-radius: 4px;
+      }
+
+      @media only screen and (max-width: 350px) {
+        & input {
+          flex: 0.3;
+        }
+
+        & button {
+          margin-left: .5rem;
+        }
+      }
+
+      @media only screen and (max-width: 336px) {
+        & input {
+          width: 20rem;
+        }
+      }
+    }
+  }
+}

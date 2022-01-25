@@ -27,8 +27,8 @@ class Wallpaper {
     `;
 
     document
-      .querySelector(".recents__container")
-      .insertAdjacentHTML("beforeend", markup);
+      .querySelector('.recents__container')
+      .insertAdjacentHTML('beforeend', markup);
   }
 
   createWalpaper() {
@@ -44,15 +44,14 @@ class Wallpaper {
     `;
 
     document
-      .querySelector(".wallpapers__wallpapers")
-      .insertAdjacentHTML("beforeend", markup);
+      .querySelector('.wallpapers__wallpapers')
+      .insertAdjacentHTML('beforeend', markup);
   }
 
   createRealWallpapers() {
     var markup = `
             <figure class="wallpapers__wallpaper" id="${this.id}" data-wallpaper="${this.paper_id}" data-aos="fade-up" style="background-image: url(/assets/images/ggy_dummy_img.jpg); background-size: cover;
     background-position: center;
-    border-radius: 3px;
     background-repeat: no-repeat;">
                 <div>
                     <img src="/assets/uploads/wallpaper/wallpaper${this.image}" draggable="false" alt="${this.altName}">
@@ -64,8 +63,8 @@ class Wallpaper {
         `;
 
     document
-      .querySelector(".wallpapers__wallpapers")
-      .insertAdjacentHTML("beforeend", markup);
+      .querySelector('.wallpapers__wallpapers')
+      .insertAdjacentHTML('beforeend', markup);
   }
 
   createPaper() {
@@ -111,7 +110,7 @@ class Wallpaper {
 
     document
       .querySelector(`.${this.parent}`)
-      .insertAdjacentHTML("beforeend", markup);
+      .insertAdjacentHTML('beforeend', markup);
   }
 
   insertLoader() {
@@ -127,7 +126,7 @@ class Wallpaper {
 
     document
       .querySelector(`.${this.parent}`)
-      .insertAdjacentHTML("afterend", markup);
+      .insertAdjacentHTML('afterend', markup);
   }
 
   insertLoader2() {
@@ -142,7 +141,7 @@ class Wallpaper {
 
     document
       .querySelector(`.${this.parent}`)
-      .insertAdjacentHTML("beforeend", markup);
+      .insertAdjacentHTML('beforeend', markup);
   }
 
   insertLoader3(pp) {
@@ -155,13 +154,13 @@ class Wallpaper {
             </div>
         `;
 
-    document.querySelector(`.${pp}`).insertAdjacentHTML("beforeend", markup);
+    document.querySelector(`.${pp}`).insertAdjacentHTML('beforeend', markup);
   }
 
   removeLoader() {
-    var loader = document.querySelector(".loader");
+    var loader = document.querySelector('.loader');
     if (loader)
-      document.querySelector(".loader").parentElement.removeChild(loader);
+      document.querySelector('.loader').parentElement.removeChild(loader);
   }
 
   clearCards() {

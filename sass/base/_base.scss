@@ -1,0 +1,87 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  //this defines what 1 rem is
+  font-size: 62.5%; // 1rem = 10px
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+
+  @include respond(tab-land) {
+    // 1rem = 9px, 9*100/16
+    font-size: 56.25%;
+  }
+
+  @include respond(tab-port) {
+    // 1rem = 8px, 8*100/16
+    font-size: 50%;
+  }
+
+  @include respond(big-desktop) {
+    // 1rem = 12px, 12*100/16
+    font-size: 80%;
+  }
+  @include respond(bigger-desktop) {
+    // 1rem = 12px, 12*100/16
+    font-size: 105%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Promesh", sans-serif;
+  font-weight: 400;
+  background: $color-grey;
+  line-height: 1.7;
+  // overflow-x: hidden;
+  // margin-bottom: 30rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+body.sun .grybg {
+  background-color: $color-grey !important;
+}
+
+::selection {
+  background: $color-secondary;
+  color: $color-primary;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(223, 223, 223);
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-secondary;
+  border-radius: 10px;
+  transition: all 2500ms ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  width: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  background: $color-primary;
+  min-height: 100vh;
+}

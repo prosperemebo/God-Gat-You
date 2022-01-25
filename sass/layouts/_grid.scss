@@ -1,0 +1,148 @@
+.wallpapers {
+  &__wallpapers {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-auto-rows: 30rem;
+    grid-gap: 3rem;
+
+    @include respond(phone) {
+      width: 95%;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      grid-auto-rows: 15rem;
+      grid-gap: 1rem;
+    }
+
+    & figure {
+      box-shadow: 1px 5px 10px rgba($color-secondary, 0.5);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+
+      & .stats {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        color: $color-primary;
+        visibility: hidden;
+        height: 100%;
+        width: 100%;
+        background: rgba($color-secondary, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(5px);
+        transition: all 0.3s ease-out;
+
+        & .wrap {
+          display: flex;
+
+          & div {
+            display: flex;
+            font-family: 'LatoRegular', sans-serif;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 2rem;
+            padding: 1rem;
+
+            & span {
+              margin-right: 0.4rem;
+            }
+          }
+        }
+      }
+
+      &:hover .stats {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    & div img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 2px;
+      transition: all 0.3s ease-out;
+
+      @include respond(phone) {
+        border-radius: 0;
+      }
+    }
+
+    & a img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 2px;
+      transition: all 0.3s ease-out;
+    }
+
+    & figcaption {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -15%);
+
+      @media (pointer: fine) {
+        transform: translate(-50%, 0%);
+      }
+
+      @media only screen and (max-width: 900px) {
+        transform: translate(-50%, -15%);
+      }
+
+      @include respond(phone) {
+        transform: translate(-50%, 0%);
+      }
+
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        rgba($color-secondary, 0.5),
+        rgba($color-secondary, 0.5)
+      );
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease-out;
+
+      & a {
+        color: $color-primary;
+        font-size: 2rem;
+        font-family: 'LatoRegular', sans-serif;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding-top: 1rem;
+      }
+    }
+  }
+
+  &__wallpaper {
+    width: 100%;
+    border-radius: 2px;
+
+    &:target {
+      border: 5px solid $color-secondary;
+      border-radius: 0px;
+    }
+
+    @media (pointer: fine) {
+      &:hover {
+        & div img {
+          transform: scale(1.4);
+        }
+
+        & figcaption {
+          transform: translate(-50%, -15%);
+        }
+      }
+    }
+  }
+
+  &__cta {
+    text-align: center;
+  }
+}

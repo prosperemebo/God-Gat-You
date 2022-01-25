@@ -1,0 +1,47 @@
+.header {
+  &__slides {
+    display: flex;
+    height: 100%;
+
+    & .slide {
+      min-width: 100%;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &--controls {
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: opacity 250ms ease-in;
+
+      @media only screen and (max-width: 1000px) {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.header:hover .header__slides--controls {
+  opacity: 1;
+}
+
+#next-btn,
+#prev-btn {
+  cursor: pointer;
+  background: transparent;
+  font-size: 3rem;
+  border: none;
+  color: #fff;
+  padding: 2rem;
+}
